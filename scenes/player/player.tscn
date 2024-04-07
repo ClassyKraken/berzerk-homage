@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://btcoyymkqk04j"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_fk14s"]
+[ext_resource type="PackedScene" uid="uid://h8g0ee1akf05" path="res://scenes/weapons/weapon_manager.tscn" id="2_dl0dm"]
+[ext_resource type="PackedScene" uid="uid://dgqwkw8d8waow" path="res://global/ui_overlay.tscn" id="3_m5asn"]
+[ext_resource type="PackedScene" uid="uid://behbdw74qgs6h" path="res://scenes/weapons/squirt_gun.tscn" id="3_pmk5a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mc2r2"]
+height = 1.25
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_fk14s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+shape = SubResource("CapsuleShape3D_mc2r2")
+
+[node name="CameraMount" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount"]
+
+[node name="Muzzle" type="Node3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="RayPlayer" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+enabled = false
+target_position = Vector3(2, 0, 0)
+collision_mask = 4
+
+[node name="UIOverlay" parent="." instance=ExtResource("3_m5asn")]
+
+[node name="TimerButtonPress" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+
+[node name="WeaponManager" parent="." instance=ExtResource("2_dl0dm")]
+script = null
+
+[node name="SquirtGun" parent="WeaponManager" instance=ExtResource("3_pmk5a")]

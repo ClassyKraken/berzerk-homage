@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://8e5s4gfinx0d"]
+
+[ext_resource type="Texture2D" uid="uid://nck73tq4h3og" path="res://resources/sprites/Sgun 120x168.png.png" id="1_6wnrn"]
+[ext_resource type="Script" path="res://scenes/weapons/hand.gd" id="2_sxc4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llvf8"]
+atlas = ExtResource("1_6wnrn")
+region = Rect2(0, 0, 120, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utnnl"]
+atlas = ExtResource("1_6wnrn")
+region = Rect2(0, 0, 120, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5sjr"]
+atlas = ExtResource("1_6wnrn")
+region = Rect2(120, 0, 120, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81i6u"]
+atlas = ExtResource("1_6wnrn")
+region = Rect2(240, 0, 120, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xygxw"]
+atlas = ExtResource("1_6wnrn")
+region = Rect2(360, 0, 120, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42vil"]
+atlas = ExtResource("1_6wnrn")
+region = Rect2(120, 0, 120, 168)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivwuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llvf8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utnnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5sjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81i6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xygxw")
+}],
+"loop": true,
+"name": &"interacting",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llvf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42vil")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 2.0
+}]
+
+[node name="Hand" type="AnimatedSprite2D"]
+position = Vector2(809, 564)
+sprite_frames = SubResource("SpriteFrames_ivwuf")
+animation = &"idle"
+script = ExtResource("2_sxc4o")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bop8cgnm74fm7"]
+
+[ext_resource type="Texture2D" uid="uid://5maeiju4odmq" path="res://resources/sprites/Sprite_Sheet_Nerf 74x110.png" id="1_w4ddi"]
+[ext_resource type="Script" path="res://scenes/weapons/gun_nerf.gd" id="2_a1uvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdy1g"]
+atlas = ExtResource("1_w4ddi")
+region = Rect2(0, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_musy8"]
+atlas = ExtResource("1_w4ddi")
+region = Rect2(74, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p287"]
+atlas = ExtResource("1_w4ddi")
+region = Rect2(0, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r86vt"]
+atlas = ExtResource("1_w4ddi")
+region = Rect2(74, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7mv0"]
+atlas = ExtResource("1_w4ddi")
+region = Rect2(148, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dx3k"]
+atlas = ExtResource("1_w4ddi")
+region = Rect2(222, 0, 74, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kaeve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdy1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_musy8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p287")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r86vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7mv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dx3k")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lvp4h"]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mja0"]
+
+[node name="GunNerf" type="AnimatedSprite2D"]
+position = Vector2(829, 593)
+sprite_frames = SubResource("SpriteFrames_kaeve")
+animation = &"idle"
+frame_progress = 0.707351
+script = ExtResource("2_a1uvm")
+
+[node name="GunBarrel" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GunBarrel"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lvp4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_8mja0")

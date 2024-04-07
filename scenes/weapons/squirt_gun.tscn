@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://behbdw74qgs6h"]
+
+[ext_resource type="Texture2D" uid="uid://5maeiju4odmq" path="res://resources/sprites/Sprite_Sheet_Nerf 74x110.png" id="1_b8i2p"]
+[ext_resource type="Script" path="res://scenes/weapons/squirt_gun.gd" id="1_hrui7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgn7x"]
+atlas = ExtResource("1_b8i2p")
+region = Rect2(0, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh3bf"]
+atlas = ExtResource("1_b8i2p")
+region = Rect2(74, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o17c"]
+atlas = ExtResource("1_b8i2p")
+region = Rect2(0, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmn2c"]
+atlas = ExtResource("1_b8i2p")
+region = Rect2(74, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay18g"]
+atlas = ExtResource("1_b8i2p")
+region = Rect2(148, 0, 74, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g78h1"]
+atlas = ExtResource("1_b8i2p")
+region = Rect2(222, 0, 74, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8i3w0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgn7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh3bf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o17c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmn2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay18g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g78h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmn2c")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="SquirtGun" type="Node3D"]
+script = ExtResource("1_hrui7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -323.0
+offset_top = -75.0
+offset_right = -323.0
+offset_bottom = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="CanvasLayer/Control"]
+position = Vector2(-4, 19)
+sprite_frames = SubResource("SpriteFrames_8i3w0")
+animation = &"idle"
+
+[node name="GunRays" type="Node3D" parent="."]
+
+[node name="Node3D" type="Node3D" parent="."]
