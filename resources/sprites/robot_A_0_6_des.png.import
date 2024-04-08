@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do2hifcgwd63i"
-path="res://.godot/imported/Sgun 120x168.png-6693bba37c07128b34d325829233daa4.ctex"
+uid="uid://cclnbgnxsvy42"
+path="res://.godot/imported/robot_A_0_6_des.png-0250133f359015c9ea3e0eb01d791e60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Sgun 120x168.png"
-dest_files=["res://.godot/imported/Sgun 120x168.png-6693bba37c07128b34d325829233daa4.ctex"]
+source_file="res://resources/sprites/robot_A_0_6_des.png"
+dest_files=["res://.godot/imported/robot_A_0_6_des.png-0250133f359015c9ea3e0eb01d791e60.ctex"]
 
 [params]
 

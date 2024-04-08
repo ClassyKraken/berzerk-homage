@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 @onready var camera_mount = $CameraMount
-@onready var camera_player = $Node3D/Camera3D
 @onready var ray_player = $RayPlayer
-@onready var weapon_manager = $WeaponManager
 @onready var timer_button_press = $TimerButtonPress
 @onready var muzzle = $CameraMount/Muzzle
+@onready var inventory_manager = $InventoryManager
+
 
 @export var PLAYER_SPEED = 5.0
 @export var MOUSE_X_SENSITIVITY = 0.1
@@ -14,12 +14,25 @@ extends CharacterBody3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var weapons: Array = []
+var player_inventory: Array = []
 var weapon_switch = 0
 var current_weapon = null
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	player_inventory = inventory_manager.get_children()
+	for child in player_inventory:
+		child.hide_weapon()
+	#for weapon in inventory_manager:
+		#weapon.visible = false
+	print("weapons ", player_inventory)
+	if player_inventory.is_empty():
+		print("no weapons")
+	else: 
+		current_weapon = player_inventory[0]
+		print("starting weapon ", current_weapon)
+		print("starting type ", current_weapon.type)
+		current_weapon.show_weapon()
 	
 
 func _input(event) -> void:
@@ -38,21 +51,26 @@ func _input(event) -> void:
 	if Input.is_action_just_pressed("interact"):
 		ray_player.force_raycast_update()
 		var target = ray_player.get_collider()
-		if current_weapon is Hand and target is Interactable:
+		if current_weapon.type == 0 and target is Interactable:
 			SignalBus.interaction_started.emit()
 		else:
 			timer_button_press.start()
-	
+
+
 	if Input.is_action_just_released("interact"):
+		SignalBus.weapon_swapping_end.emit()
+		var click_length = timer_button_press.time_left
 		timer_button_press.stop()
-		if current_weapon is Hand:
-			#hand.play("idle")
-			return
-		else:
+		print("time left ", click_length)
+		if click_length >= 0.80:
 			var muzzle = muzzle.global_transform
-			print("muzzle ", muzzle)
-			SignalBus.fire_weapon.emit(muzzle)
-		
+			SignalBus.weapon_action.emit(muzzle)
+
+		if current_weapon.type == 0:
+			SignalBus.interaction_stopped.emit()
+			print("stop")
+		else:
+			pass
 
 
 func _process(delta) -> void:
@@ -75,10 +93,14 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, PLAYER_SPEED)
 
 	move_and_slide()
+		
+	if timer_button_press.time_left > 0 and timer_button_press.time_left < 0.80:
+		SignalBus.weapon_swapping.emit()
 
 
 func _on_timer_button_press_timeout():
-	var weapons_avail = weapons.size() - 1
+	SignalBus.weapon_swapping_end.emit()
+	var weapons_avail = player_inventory.size() - 1
 	weapon_switch += 1
 	if weapon_switch > weapons_avail:
 		weapon_switch = 0
@@ -86,21 +108,20 @@ func _on_timer_button_press_timeout():
 
 
 func switch_weapon(weapon_switch):
-	var weapon_request = weapons[weapon_switch]
+	var weapon_request = player_inventory[weapon_switch]
 	if current_weapon == weapon_request:
 		print("no weapon to switch to")
 		return
 	
-	current_weapon.hide()
+	current_weapon.hide_weapon()
 	print("hide ", current_weapon)
 	current_weapon = weapon_request
-	current_weapon.show()
+	current_weapon.show_weapon()
 	print("show ", current_weapon)
 	
 	print("switched to ", current_weapon)
 
 
-func add_to_inventory():
+func add_to_inventory(item):
 	print("add to inv")
-	#inventory.add_child(GUN_NERF.instantiate())
-	#weapons = inventory.get_children()
+	

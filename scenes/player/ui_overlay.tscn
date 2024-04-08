@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgqwkw8d8waow"]
+[gd_scene load_steps=8 format=3 uid="uid://dgqwkw8d8waow"]
 
-[ext_resource type="Script" path="res://global/ui_overlay.gd" id="1_0y52t"]
+[ext_resource type="Script" path="res://scenes/player/ui_overlay.gd" id="1_0y52t"]
 [ext_resource type="Texture2D" uid="uid://bwmdtfuhoitec" path="res://resources/sprites/white circle.png" id="2_aod36"]
 [ext_resource type="Texture2D" uid="uid://d1g0128ainoct" path="res://resources/sprites/blue circle.png" id="3_s7fim"]
+[ext_resource type="Texture2D" uid="uid://tj5ikf7cumfj" path="res://resources/sprites/sprite_weapon_swap_rev.png" id="4_okioe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56l0s"]
+atlas = ExtResource("4_okioe")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drsqy"]
+atlas = ExtResource("4_okioe")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xc3uy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56l0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drsqy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="UIOverlay" type="Control"]
 layout_mode = 3
@@ -13,9 +36,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0y52t")
 
-[node name="InteractionProgress" type="TextureProgressBar" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionProgress" type="TextureProgressBar" parent="CanvasLayer"]
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,8 +55,7 @@ fill_mode = 5
 texture_under = ExtResource("3_s7fim")
 texture_progress = ExtResource("2_aod36")
 
-[node name="CrossHair" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="CrossHair" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,6 +68,12 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.160784)
+
+[node name="UIAnimationPlayer" type="AnimatedSprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(1064, 561)
+sprite_frames = SubResource("SpriteFrames_xc3uy")
+frame_progress = 0.0741354
 
 [node name="InteractionTimer" type="Timer" parent="."]
 process_callback = 0

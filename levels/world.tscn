@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cox47ugyivcbu"]
+[gd_scene load_steps=9 format=3 uid="uid://cox47ugyivcbu"]
 
 [ext_resource type="PackedScene" uid="uid://btcoyymkqk04j" path="res://scenes/player/player.tscn" id="1_7m1pi"]
-[ext_resource type="PackedScene" uid="uid://3txtybnir8fj" path="res://scenes/items/interactable.tscn" id="2_mpl8c"]
+[ext_resource type="PackedScene" uid="uid://c44pulnkiqp2n" path="res://scenes/enemies/enemey.tscn" id="3_8kai7"]
+[ext_resource type="PackedScene" uid="uid://dsbhofx7vwsmt" path="res://scenes/items/interactable.tscn" id="3_xdlcl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3radu"]
 albedo_color = Color(0.247059, 0.141176, 0, 1)
@@ -44,5 +45,8 @@ shape = SubResource("ConcavePolygonShape3D_07sl4")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 2.5, 0)
 
-[node name="StaticBody3D" parent="." instance=ExtResource("2_mpl8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94486, 0.91096, -2.34583)
+[node name="EnemeyStandard" parent="." instance=ExtResource("3_8kai7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9976, 0.490034, -0.00118768)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("3_xdlcl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10612, 0.998174, -2.84465)

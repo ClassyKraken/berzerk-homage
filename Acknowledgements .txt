@@ -1,3 +1,12 @@
 Tutorials
 MizizizizTutorials - How To Make A Doom Clone In Godot 4 (https://www.youtube.com/watch?v=jzbgH4AMtI8)
 Nagi - How to Add Interaction in Godot 3 (https://www.youtube.com/watch?v=An3uHrAoHRw&t=18s)
+
+
+
+mechs - https://lanferna.itch.io/tin-stumpers
+
+explosions - https://www.patreon.com/posts/godot-vfx-easy-93683992
+pixel art gun for swapping anim - https://vladpenn.itch.io/weapon
+player gun - https://rekkimaru.itch.io/fps-gun-sprites
+chest - https://franjatesa.itch.io/free-rpgmaker-chests

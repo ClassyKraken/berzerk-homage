@@ -1,24 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://3txtybnir8fj"]
+[gd_scene load_steps=6 format=3 uid="uid://dsbhofx7vwsmt"]
 
 [ext_resource type="Script" path="res://scenes/items/interactable.gd" id="1_hadb6"]
-[ext_resource type="Texture2D" uid="uid://kl6qqdj3e73l" path="res://resources/sprites/2DSprite_Chest_Closed.png" id="2_w8jey"]
+[ext_resource type="Texture2D" uid="uid://13j6enoounnn" path="res://resources/sprites/2DSprite_Chest_Closed.png" id="2_nnhtd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a768r"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjvtu"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_pwmt1"]
+[sub_resource type="QuadMesh" id="QuadMesh_rhspj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xll35"]
-albedo_texture = ExtResource("2_w8jey")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2srt"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_nnhtd")
 billboard_mode = 2
+billboard_keep_scale = true
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="Interactable" type="StaticBody3D"]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 6
 script = ExtResource("1_hadb6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_a768r")
+shape = SubResource("BoxShape3D_gjvtu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("QuadMesh_pwmt1")
-surface_material_override/0 = SubResource("StandardMaterial3D_xll35")
+mesh = SubResource("QuadMesh_rhspj")
+surface_material_override/0 = SubResource("StandardMaterial3D_h2srt")

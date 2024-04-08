@@ -12,3 +12,9 @@ func _physics_process(delta):
 	timer += delta
 	if timer >= KILL_TIME:
 		queue_free()
+
+
+func _on_body_entered(body):
+	queue_free()
+	if body.is_in_group("Enemy"):
+		body.handle_hit()

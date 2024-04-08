@@ -3,8 +3,13 @@ extends StaticBody3D
 
 @export var timer_interaction = 2.0
 
-@onready var mesh_interactable = $CollisionShape3D/MeshInstance3D
-const test = preload("res://resources/sprites/2DSprite_Chest_Open.png")
+@onready var gun_squirt = $InventoryManager/GunSquirt
+
+@onready var interactable_mesh = $CollisionShape3D/MeshInstance3D
+
+
+
+const CHEST_OPEN = preload("res://resources/sprites/2DSprite_Chest_Open.png")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,8 +29,9 @@ func interaction_stopped():
 
 
 func interaction_complete():
-	mesh_interactable.get_surface_override_material(0).albedo_texture = test
-	SignalBus.add_gun_nerf.emit()
+	interactable_mesh.get_surface_override_material(0).albedo_texture = CHEST_OPEN
+	var item = gun_squirt
+	SignalBus.add_to_inventory.emit(item)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

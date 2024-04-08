@@ -1,8 +1,9 @@
 extends Control
 
-@onready var interaction_progress = $InteractionProgress
-@onready var cross_hair = $CrossHair
+@onready var interaction_progress = $CanvasLayer/InteractionProgress
+@onready var cross_hair = $CanvasLayer/CrossHair
 @onready var timer_interaction: Timer = $InteractionTimer
+@onready var ui_animation_player = $CanvasLayer/UIAnimationPlayer
 
 var time_to_interact = 2.0
 
@@ -10,6 +11,8 @@ var time_to_interact = 2.0
 func _ready():
 	SignalBus.connect("interacting", interacting)
 	SignalBus.connect("interaction_stopped", interaction_stopped)
+	SignalBus.connect("weapon_swapping", weapon_swapping)
+	SignalBus.connect("weapon_swapping_end", weapon_swapping_end)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -33,3 +36,14 @@ func interaction_stopped():
 
 func _on_timer_timeout():
 	SignalBus.interaction_complete.emit()
+
+
+func weapon_swapping():
+	ui_animation_player.show()
+	ui_animation_player.play("default")
+
+
+func weapon_swapping_end():
+	ui_animation_player.hide()
+	ui_animation_player.stop()
+
