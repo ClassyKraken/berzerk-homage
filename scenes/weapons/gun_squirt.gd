@@ -37,6 +37,7 @@ func weapon_action(muzzle):
 		var new_dart = AMMO_WATER.instantiate()
 		gun_rays.add_child(new_dart)
 		new_dart.global_transform = muzzle
+		print("shoot water")
 
 
 func ready_to_act():

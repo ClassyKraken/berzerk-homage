@@ -64,8 +64,8 @@ func _input(event) -> void:
 		print("time left ", click_length)
 		if click_length >= 0.80:
 			var muzzle = muzzle.global_transform
-			SignalBus.weapon_action.emit(muzzle)
-
+			#SignalBus.weapon_action.emit(muzzle)
+			current_weapon.weapon_action(muzzle)
 		if current_weapon.type == 0:
 			SignalBus.interaction_stopped.emit()
 			print("stop")

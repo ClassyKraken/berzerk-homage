@@ -1,28 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://c44pulnkiqp2n"]
+[gd_scene load_steps=9 format=3 uid="uid://c44pulnkiqp2n"]
 
 [ext_resource type="Texture2D" uid="uid://c436jnwhwl785" path="res://resources/sprites/robot_A_0_6.png" id="1_lu3at"]
 [ext_resource type="Script" path="res://scenes/enemies/enemey.gd" id="1_nkylc"]
+[ext_resource type="Resource" uid="uid://nfqjxsumdfni" path="res://scenes/enemies/purpleenemy.tres" id="2_y8rc6"]
 [ext_resource type="PackedScene" uid="uid://s38t25rckkwa" path="res://resources/FX/effects_explosion.tscn" id="3_1ewbw"]
+[ext_resource type="Texture2D" uid="uid://cclnbgnxsvy42" path="res://resources/sprites/robot_A_0_6_des.png" id="3_68kxo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvorr"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_alrjl"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwlrf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dt24"]
+resource_local_to_scene = true
 transparency = 1
-albedo_texture = ExtResource("1_lu3at")
 billboard_mode = 2
 
 [node name="Enemey" type="StaticBody3D" groups=["Enemy"]]
 collision_layer = 8
 collision_mask = 11
 script = ExtResource("1_nkylc")
+resource = ExtResource("2_y8rc6")
+base_texture = ExtResource("1_lu3at")
+destroyed_texture = ExtResource("3_68kxo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_cvorr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("QuadMesh_alrjl")
-surface_material_override/0 = SubResource("StandardMaterial3D_gwlrf")
+surface_material_override/0 = SubResource("StandardMaterial3D_6dt24")
 
 [node name="EffectsExplosion" parent="." instance=ExtResource("3_1ewbw")]

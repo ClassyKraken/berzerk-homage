@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://nfqjxsumdfni"]
+
+[ext_resource type="Texture2D" uid="uid://c436jnwhwl785" path="res://resources/sprites/robot_A_0_6.png" id="1_6b4pm"]
+[ext_resource type="Script" path="res://resources/enemy_resource.gd" id="1_t5htb"]
+[ext_resource type="Texture2D" uid="uid://cclnbgnxsvy42" path="res://resources/sprites/robot_A_0_6_des.png" id="2_8knas"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_t5htb")
+base_texture = ExtResource("1_6b4pm")
+destroyed_texture = ExtResource("2_8knas")
+name = "Purps"
+health = 1
