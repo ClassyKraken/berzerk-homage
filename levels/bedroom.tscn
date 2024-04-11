@@ -1,0 +1,166 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcjm6wyq1tj2j"]
+
+[ext_resource type="PackedScene" uid="uid://btcoyymkqk04j" path="res://scenes/player/player.tscn" id="1_5dxvf"]
+[ext_resource type="Texture2D" uid="uid://ddqahnl85h0iw" path="res://textures/512x512/Wood/Wood_06-512x512.png" id="1_uq67d"]
+[ext_resource type="PackedScene" uid="uid://dsbhofx7vwsmt" path="res://scenes/items/interactable.tscn" id="2_dpfa8"]
+[ext_resource type="PackedScene" uid="uid://c44pulnkiqp2n" path="res://scenes/enemies/enemey.tscn" id="3_kxd5l"]
+[ext_resource type="PackedScene" uid="uid://cbyuvundgbhur" path="res://levels/elements/door.tscn" id="4_3tgjw"]
+[ext_resource type="Texture2D" uid="uid://c436jnwhwl785" path="res://resources/sprites/robot_A_0_6.png" id="4_wrg0b"]
+[ext_resource type="Texture2D" uid="uid://cclnbgnxsvy42" path="res://resources/sprites/robot_A_0_6_des.png" id="5_jhmlc"]
+[ext_resource type="Script" path="res://resources/enemy_resource.gd" id="6_1o4sp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sl0tm"]
+albedo_texture = ExtResource("1_uq67d")
+
+[sub_resource type="Resource" id="Resource_fv4hx"]
+resource_local_to_scene = true
+script = ExtResource("6_1o4sp")
+base_texture = ExtResource("4_wrg0b")
+destroyed_texture = ExtResource("5_jhmlc")
+name = "Purps"
+health = 1
+
+[sub_resource type="Resource" id="Resource_pc755"]
+resource_local_to_scene = true
+script = ExtResource("6_1o4sp")
+base_texture = ExtResource("4_wrg0b")
+destroyed_texture = ExtResource("5_jhmlc")
+name = "Purps"
+health = 1
+
+[node name="Bedroom" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.424941, -0.510706, 1.90737)
+use_collision = true
+collision_mask = 3
+flip_faces = true
+size = Vector3(5, 3, 5)
+material = SubResource("StandardMaterial3D_sl0tm")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("1_5dxvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45991, -1.72328, 1.88775)
+
+[node name="Bed" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58254, -1.70238, 3.43923)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.97, 0.6, 1.91)
+
+[node name="Desk" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01564, -1.6312, 3.92577)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.8, 0.76, 0.91)
+
+[node name="PC" type="CSGBox3D" parent="Desk"]
+transform = Transform3D(-0.73932, 0, -0.126122, 0, 0.75, 0, 0.126122, 0, -0.73932, 0.144624, 0.76936, 0.0657474)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.3, 0.76, 0.1)
+
+[node name="Stand" type="CSGCylinder3D" parent="Desk/PC"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00205934, -0.25648, -0.0838563)
+radius = 0.099
+height = 0.5
+
+[node name="Base" type="CSGBox3D" parent="Desk/PC"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00205934, -0.506003, 0.0231719)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.75, 0.5, 0.05)
+
+[node name="Dresser" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32355, -1.63688, -0.102054)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.76, 0.91)
+
+[node name="TV" type="CSGBox3D" parent="Dresser"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038424, 0.946918, -0.190661)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.3, 0.76, 0.1)
+
+[node name="Stand" type="CSGCylinder3D" parent="Dresser/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00205934, -0.25648, -0.0838563)
+radius = 0.099
+height = 0.5
+
+[node name="Base" type="CSGBox3D" parent="Dresser/TV"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00205934, -0.506003, 0.0231719)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.75, 0.5, 0.05)
+
+[node name="Interactable" parent="." instance=ExtResource("2_dpfa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0406258, -1.4935, 3.40008)
+
+[node name="Door" parent="." instance=ExtResource("4_3tgjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14858, -0.980259, -0.600505)
+size = Vector3(1.125, 2.375, 0.1)
+
+[node name="shelf" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89898, -0.210144, 3.94105)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.01, 0.91)
+
+[node name="shelf2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.402888, -2.01071, -0.157434)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.01, 0.8)
+
+[node name="shelf3" type="CSGBox3D" parent="shelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37187e-05, 0.8, -0.000193596)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.01, 0.8)
+
+[node name="shelf4" type="CSGBox3D" parent="shelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37187e-05, 1.6, -0.000193596)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.01, 0.8)
+
+[node name="shelf9" type="CSGBox3D" parent="shelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37187e-05, 2.4, -0.000193596)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.01, 0.8)
+
+[node name="shelf5" type="CSGBox3D" parent="shelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37187e-05, 3, -0.000193596)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.01, 0.8)
+
+[node name="shelf6" type="CSGBox3D" parent="shelf2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.37187e-05, 1.50847, -0.420238)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.01, 3)
+
+[node name="shelf7" type="CSGBox3D" parent="shelf2"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -0.764029, 1.50847, -0.000193596)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.8, 0.01, 3)
+
+[node name="shelf8" type="CSGBox3D" parent="shelf2"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.746172, 1.50847, -0.000193596)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.8, 0.01, 3)
+
+[node name="Enemey" parent="." instance=ExtResource("3_kxd5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36168, 0.198596, 3.76187)
+resource = SubResource("Resource_fv4hx")
+
+[node name="Enemey2" parent="." instance=ExtResource("3_kxd5l")]
+resource = SubResource("Resource_pc755")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.424941, 0.734116, 1.90737)

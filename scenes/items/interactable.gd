@@ -20,12 +20,11 @@ func _ready():
 
 
 func interaction_started():
-	print("Hi it's me ", self)
 	SignalBus.interacting.emit()
 
 
 func interaction_stopped():
-	print("Bye it's me ", self)
+	pass
 
 
 func interaction_complete():

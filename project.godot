@@ -12,12 +12,17 @@ config_version=5
 
 config/name="Berzerk"
 run/main_scene="res://levels/world.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://global/signal_bus.gd"
+StatManager="*res://global/StatManager.gd"
+
+[dotnet]
+
+project/assembly_name="Berzerk"
 
 [editor]
 

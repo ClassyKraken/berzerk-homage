@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://do2qrqxtgotth"]
+
+[node name="DiningSet" type="Node3D"]
+
+[node name="Bench2" type="CSGBox3D" parent="."]
+use_collision = true
+collision_mask = 3
+size = Vector3(0.5, 0.5, 4)
+
+[node name="Back" type="CSGBox3D" parent="Bench2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.249, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.1, 1, 4)
+
+[node name="Bench" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.40023, 0, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.5, 0.5, 4)
+
+[node name="Back" type="CSGBox3D" parent="Bench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.249, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.1, 1, 4)
+
+[node name="Table" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.198, 0.52, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.1, 4)
+
+[node name="Leg" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 1.198, 0.0923047, 1.708)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.5, 0.1, 0.764609)
+
+[node name="Leg2" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 1.198, 0.0923047, -1.84996)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.5, 0.1, 0.764609)

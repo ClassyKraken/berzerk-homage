@@ -9,3 +9,5 @@ signal add_to_inventory(item)
 signal weapon_action(muzzle)
 signal weapon_swapping()
 signal weapon_swapping_end()
+
+signal level_change(destination)

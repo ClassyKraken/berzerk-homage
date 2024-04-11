@@ -53,6 +53,8 @@ func _input(event) -> void:
 		var target = ray_player.get_collider()
 		if current_weapon.type == 0 and target is Interactable:
 			SignalBus.interaction_started.emit()
+		elif current_weapon.type == 0 and target is Door:
+			target.change_level()
 		else:
 			timer_button_press.start()
 
@@ -61,7 +63,6 @@ func _input(event) -> void:
 		SignalBus.weapon_swapping_end.emit()
 		var click_length = timer_button_press.time_left
 		timer_button_press.stop()
-		print("time left ", click_length)
 		if click_length >= 0.80:
 			var muzzle = muzzle.global_transform
 			#SignalBus.weapon_action.emit(muzzle)

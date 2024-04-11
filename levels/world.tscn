@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cox47ugyivcbu"]
+[gd_scene load_steps=19 format=3 uid="uid://cox47ugyivcbu"]
 
 [ext_resource type="PackedScene" uid="uid://btcoyymkqk04j" path="res://scenes/player/player.tscn" id="1_7m1pi"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_w7f35"]
 [ext_resource type="PackedScene" uid="uid://c44pulnkiqp2n" path="res://scenes/enemies/enemey.tscn" id="3_8kai7"]
 [ext_resource type="PackedScene" uid="uid://dsbhofx7vwsmt" path="res://scenes/items/interactable.tscn" id="3_xdlcl"]
 [ext_resource type="Texture2D" uid="uid://c436jnwhwl785" path="res://resources/sprites/robot_A_0_6.png" id="5_8sc2h"]
-[ext_resource type="Resource" uid="uid://k0ulatr7pwqe" path="res://scenes/enemies/yelloenemy.tres" id="5_pl0oe"]
 [ext_resource type="Texture2D" uid="uid://cclnbgnxsvy42" path="res://resources/sprites/robot_A_0_6_des.png" id="7_framw"]
+[ext_resource type="Texture2D" uid="uid://cvx0knemaank8" path="res://resources/sprites/enemy sprites/yellow1.png" id="7_lhbs2"]
 [ext_resource type="Script" path="res://resources/enemy_resource.gd" id="8_t4w3b"]
+[ext_resource type="PackedScene" uid="uid://cbyuvundgbhur" path="res://levels/elements/door.tscn" id="9_65wyp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3radu"]
 albedo_color = Color(0.247059, 0.141176, 0, 1)
@@ -31,7 +33,33 @@ destroyed_texture = ExtResource("7_framw")
 name = "Purps"
 health = 1
 
+[sub_resource type="Resource" id="Resource_5cfgy"]
+resource_local_to_scene = true
+script = ExtResource("8_t4w3b")
+base_texture = ExtResource("7_lhbs2")
+destroyed_texture = ExtResource("7_framw")
+name = "Yells"
+health = 0
+
+[sub_resource type="Resource" id="Resource_2q13j"]
+resource_local_to_scene = true
+script = ExtResource("8_t4w3b")
+base_texture = ExtResource("5_8sc2h")
+destroyed_texture = ExtResource("7_framw")
+name = "Purps"
+health = 1
+
+[sub_resource type="Resource" id="Resource_p6g7c"]
+resource_local_to_scene = true
+script = ExtResource("8_t4w3b")
+base_texture = ExtResource("7_lhbs2")
+destroyed_texture = ExtResource("7_framw")
+name = "Yells"
+health = 0
+
 [node name="World" type="Node3D"]
+script = ExtResource("1_w7f35")
+level_name = "TestWorld"
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_3radu")
@@ -66,11 +94,16 @@ resource = SubResource("Resource_cflem")
 
 [node name="Enemey2" parent="." instance=ExtResource("3_8kai7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439971, -4.0258)
-resource = ExtResource("5_pl0oe")
+resource = SubResource("Resource_5cfgy")
 
 [node name="Enemey3" parent="." instance=ExtResource("3_8kai7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98012, 0.439971, -4.0258)
+resource = SubResource("Resource_2q13j")
 
 [node name="Enemey4" parent="." instance=ExtResource("3_8kai7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98012, 0.439971, -0.00793219)
-resource = ExtResource("5_pl0oe")
+resource = SubResource("Resource_p6g7c")
+
+[node name="Door" parent="." instance=ExtResource("9_65wyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70413, 0.989163, -4.79852)
+destination = "LivingRoom"
