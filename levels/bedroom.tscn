@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcjm6wyq1tj2j"]
+[gd_scene load_steps=13 format=3 uid="uid://dcjm6wyq1tj2j"]
 
 [ext_resource type="PackedScene" uid="uid://btcoyymkqk04j" path="res://scenes/player/player.tscn" id="1_5dxvf"]
 [ext_resource type="Texture2D" uid="uid://ddqahnl85h0iw" path="res://textures/512x512/Wood/Wood_06-512x512.png" id="1_uq67d"]
 [ext_resource type="PackedScene" uid="uid://dsbhofx7vwsmt" path="res://scenes/items/interactable.tscn" id="2_dpfa8"]
+[ext_resource type="PackedScene" uid="uid://n20se57cfini" path="res://levels/elements/bed.tscn" id="3_hbnhv"]
 [ext_resource type="PackedScene" uid="uid://c44pulnkiqp2n" path="res://scenes/enemies/enemey.tscn" id="3_kxd5l"]
 [ext_resource type="PackedScene" uid="uid://cbyuvundgbhur" path="res://levels/elements/door.tscn" id="4_3tgjw"]
 [ext_resource type="Texture2D" uid="uid://c436jnwhwl785" path="res://resources/sprites/robot_A_0_6.png" id="4_wrg0b"]
@@ -42,11 +43,7 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("1_5dxvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45991, -1.72328, 1.88775)
 
-[node name="Bed" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58254, -1.70238, 3.43923)
-use_collision = true
-collision_mask = 3
-size = Vector3(0.97, 0.6, 1.91)
+[node name="Bed" parent="." instance=ExtResource("3_hbnhv")]
 
 [node name="Desk" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01564, -1.6312, 3.92577)

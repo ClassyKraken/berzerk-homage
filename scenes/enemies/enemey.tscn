@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c44pulnkiqp2n"]
+[gd_scene load_steps=8 format=3 uid="uid://c44pulnkiqp2n"]
 
-[ext_resource type="Texture2D" uid="uid://c436jnwhwl785" path="res://resources/sprites/robot_A_0_6.png" id="1_lu3at"]
 [ext_resource type="Script" path="res://scenes/enemies/enemey.gd" id="1_nkylc"]
-[ext_resource type="Resource" uid="uid://nfqjxsumdfni" path="res://scenes/enemies/purpleenemy.tres" id="2_y8rc6"]
-[ext_resource type="PackedScene" uid="uid://s38t25rckkwa" path="res://resources/FX/effects_explosion.tscn" id="3_1ewbw"]
-[ext_resource type="Texture2D" uid="uid://cclnbgnxsvy42" path="res://resources/sprites/robot_A_0_6_des.png" id="3_68kxo"]
+[ext_resource type="Resource" uid="uid://nfqjxsumdfni" path="res://scenes/enemies/enemyresources/purpleenemy.tres" id="2_kptxu"]
+[ext_resource type="Texture2D" uid="uid://cfqc5lt01k81w" path="res://scenes/enemies/enemy sprites/purple_enemy.png" id="3_pmsgw"]
+[ext_resource type="Texture2D" uid="uid://88h5qv2cd7ed" path="res://scenes/enemies/enemy sprites/purple_destroyed.png" id="4_klagi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvorr"]
 size = Vector3(0.75, 0.75, 0.75)
@@ -17,20 +16,19 @@ resource_local_to_scene = true
 transparency = 1
 billboard_mode = 2
 
-[node name="Enemey" type="StaticBody3D" groups=["Enemy"]]
+[node name="Enemy" type="RigidBody3D" groups=["Enemy"]]
 collision_layer = 8
-collision_mask = 11
+collision_mask = 31
 script = ExtResource("1_nkylc")
-resource = ExtResource("2_y8rc6")
-base_texture = ExtResource("1_lu3at")
-destroyed_texture = ExtResource("3_68kxo")
+resource = ExtResource("2_kptxu")
+base_texture = ExtResource("3_pmsgw")
+destroyed_texture = ExtResource("4_klagi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_cvorr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.151287, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 mesh = SubResource("QuadMesh_alrjl")
+skeleton = NodePath("../CollisionShape3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_6dt24")
-
-[node name="EffectsExplosion" parent="." instance=ExtResource("3_1ewbw")]

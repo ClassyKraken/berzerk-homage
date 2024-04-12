@@ -75,9 +75,29 @@ position = Vector2(1064, 561)
 sprite_frames = SubResource("SpriteFrames_xc3uy")
 frame_progress = 0.0741354
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(300, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Notifications" type="Label" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="NotificationTimer" type="Timer" parent="CanvasLayer/HBoxContainer/Notifications"]
+wait_time = 3.0
+one_shot = true
+
 [node name="InteractionTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 2.0
 one_shot = true
 
+[connection signal="timeout" from="CanvasLayer/HBoxContainer/Notifications/NotificationTimer" to="." method="_on_notification_timer_timeout"]
 [connection signal="timeout" from="InteractionTimer" to="." method="_on_timer_timeout"]

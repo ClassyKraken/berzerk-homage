@@ -29,6 +29,8 @@ height = 0.15
 albedo_color = Color(1, 0, 0, 1)
 
 [node name="AmmoFoam" type="Area3D"]
+collision_layer = 16
+collision_mask = 14
 script = ExtResource("1_rjcu7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

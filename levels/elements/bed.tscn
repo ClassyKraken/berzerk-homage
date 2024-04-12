@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://n20se57cfini"]
+
+[node name="Bed" type="Node3D"]
+
+[node name="Bed" type="CSGBox3D" parent="."]
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.6, 1.91)
+
+[node name="Cover" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.225547)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.5, 0.61, 1.5)
+
+[node name="Pillow" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353107, 0.349208, 0.764)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.628418, 0.1, 0.351074)
+
+[node name="Pillow2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338686, 0.349208, 0.764)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.628418, 0.1, 0.351074)

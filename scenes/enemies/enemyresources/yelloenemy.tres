@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://k0ulatr7pwqe"]
+
+[ext_resource type="Script" path="res://resources/enemy_resource.gd" id="1_8y0f6"]
+[ext_resource type="Texture2D" uid="uid://ccra2rigiyarw" path="res://scenes/enemies/enemy sprites/yellow_enemy.png" id="1_43pe0"]
+[ext_resource type="Texture2D" path="res://resources/sprites/robot_A_0_6_des.png" id="2_1kcra"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_8y0f6")
+base_texture = ExtResource("1_43pe0")
+destroyed_texture = ExtResource("2_1kcra")
+name = "Yells"
+health = 0

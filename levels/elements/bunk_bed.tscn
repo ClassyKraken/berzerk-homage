@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dbjuknmx2kk8u"]
+
+[node name="BunkBed" type="Node3D"]
+
+[node name="Bed" type="CSGBox3D" parent="."]
+use_collision = true
+collision_mask = 3
+size = Vector3(0.97, 0.35, 1.91)
+
+[node name="Cover" type="CSGBox3D" parent="Bed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.225547)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.98, 0.36, 1.5)
+
+[node name="Pillow" type="CSGBox3D" parent="Bed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229819, 0.764)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.628418, 0.1, 0.351074)
+
+[node name="Bed2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.97, 0.35, 1.91)
+
+[node name="Cover" type="CSGBox3D" parent="Bed2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.225547)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.98, 0.36, 1.5)
+
+[node name="Pillow" type="CSGBox3D" parent="Bed2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229819, 0.764)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.628418, 0.1, 0.351074)
+
+[node name="Support" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.498551, 0.632148, 0.903867)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)
+
+[node name="Support2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503298, 0.632148, -0.930081)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)
+
+[node name="Support3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502916, 0.632148, -0.930081)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)
+
+[node name="Support4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497242, 0.632148, 0.908091)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)
+
+[node name="Support5" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.411844, 0.632148, 0.966612)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)
+
+[node name="Support6" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.415604, 0.632148, -0.990167)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)
+
+[node name="Support7" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.413406, 0.632148, -0.990844)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)
+
+[node name="Support8" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4095, 0.632148, 0.968327)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.025, 1.62097, 0.15)

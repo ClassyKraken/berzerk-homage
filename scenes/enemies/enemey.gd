@@ -1,12 +1,14 @@
 class_name Enemy
-extends StaticBody3D
+extends RigidBody3D
 
 var stat_manager 
 
 @export var resource = Resource
 
-@onready var mesh_enemy = $CollisionShape3D/MeshInstance3D
-@onready var effects_explosion = $EffectsExplosion
+const DEAD_ENEMEY = preload("res://scenes/enemies/dead_enemey.tscn")
+
+@onready var collider_enemy = $CollisionShape3D
+@onready var mesh_enemy = $MeshInstance3D
 
 @export var base_texture : Texture
 @export var destroyed_texture : Texture
@@ -28,5 +30,7 @@ func handle_hit():
 	stat_manager.kills += 1
 	stat_manager.num_enemies -= 1
 	stat_manager.update_stats()
-	effects_explosion.explode()
-	mesh_enemy.get_surface_override_material(0).albedo_texture = destroyed_texture
+	var destroyed = DEAD_ENEMEY.instantiate()
+	get_tree().root.add_child(destroyed)
+	destroyed.global_transform = self.global_transform
+	queue_free()

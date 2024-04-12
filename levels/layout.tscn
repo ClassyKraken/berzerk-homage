@@ -1,0 +1,1029 @@
+[gd_scene load_steps=43 format=3 uid="uid://ltmucum1fqyh"]
+
+[ext_resource type="PackedScene" uid="uid://btcoyymkqk04j" path="res://scenes/player/player.tscn" id="1_5mbig"]
+[ext_resource type="PackedScene" uid="uid://3hgp53dcl8hr" path="res://levels/elements/secret_door.tscn" id="1_36ct8"]
+[ext_resource type="PackedScene" uid="uid://do2qrqxtgotth" path="res://levels/elements/dining_set.tscn" id="1_i0h7i"]
+[ext_resource type="PackedScene" uid="uid://cqwcmtw5rs2ir" path="res://levels/elements/wall_light.tscn" id="1_we1td"]
+[ext_resource type="PackedScene" uid="uid://n20se57cfini" path="res://levels/elements/bed.tscn" id="3_4lc1x"]
+[ext_resource type="PackedScene" uid="uid://cs838kv2ftqrk" path="res://levels/elements/couch.tscn" id="4_3ymro"]
+[ext_resource type="PackedScene" uid="uid://w3iuhr7gwvte" path="res://levels/elements/chair.tscn" id="5_onfnr"]
+[ext_resource type="PackedScene" uid="uid://cldtier42hv0v" path="res://levels/elements/table.tscn" id="5_pdwtv"]
+[ext_resource type="PackedScene" uid="uid://cbyuvundgbhur" path="res://levels/elements/door.tscn" id="5_r55rf"]
+[ext_resource type="PackedScene" uid="uid://dbjuknmx2kk8u" path="res://levels/elements/bunk_bed.tscn" id="6_5qvay"]
+[ext_resource type="PackedScene" uid="uid://ctgpivuwxsvd7" path="res://levels/elements/cabinet.tscn" id="6_65hgb"]
+[ext_resource type="Texture2D" uid="uid://buwyrwr4obr0p" path="res://textures/Vehicles/school bus/school-bus-full.png" id="7_u1hfp"]
+[ext_resource type="PackedScene" uid="uid://dlec5x1dx0dob" path="res://levels/elements/shelving.tscn" id="8_4h3k2"]
+[ext_resource type="PackedScene" uid="uid://dby3xloo5jvw2" path="res://levels/elements/toilet.tscn" id="8_o4scp"]
+[ext_resource type="Texture2D" uid="uid://b0foukpbs1qa5" path="res://textures/Vehicles/swat van/Swat-Van-full.png" id="8_ttxsm"]
+[ext_resource type="Texture2D" uid="uid://xmgeqi1fbk6y" path="res://textures/aerial_asphalt_01/aerial_asphalt_01_diff_4k.jpg" id="9_e1cdw"]
+[ext_resource type="PackedScene" uid="uid://depnj1phyusxy" path="res://levels/elements/sink.tscn" id="9_pe8bh"]
+[ext_resource type="Texture2D" uid="uid://dbtch7pepkdh1" path="res://textures/aerial_asphalt_01/aerial_asphalt_01_disp_4k.jpg" id="10_fi003"]
+[ext_resource type="Shader" path="res://levels/SkyShader.gdshader" id="10_fwdgt"]
+[ext_resource type="Texture2D" uid="uid://1r1o1dtmkq87" path="res://addons/AllSky/Skyboxes/AllSkyFree_Sky_ColdSunset_Equirect.png" id="11_g7c20"]
+[ext_resource type="Texture2D" uid="uid://be00i03fi7rkh" path="res://textures/aerial_asphalt_01/aerial_asphalt_01_nor_gl_4k.jpg" id="11_s0e44"]
+[ext_resource type="Texture2D" uid="uid://iu87s4hblrju" path="res://textures/aerial_asphalt_01/aerial_asphalt_01_rough_4k.jpg" id="12_6xebv"]
+[ext_resource type="Texture2D" uid="uid://nduikqn455t7" path="res://textures/Grass/Grass001_4K_Color.jpg" id="13_p44vh"]
+[ext_resource type="Texture2D" uid="uid://bxt0rw6dcfvr3" path="res://textures/Grass/Grass001_4K_Displacement.jpg" id="14_o8vnc"]
+[ext_resource type="Texture2D" uid="uid://cuw3og7kekw2b" path="res://textures/Grass/Grass001_4K_NormalGL.jpg" id="15_be06b"]
+[ext_resource type="Texture2D" uid="uid://c2d33sjyufcfp" path="res://textures/Grass/Grass001_4K_Roughness.jpg" id="16_36ljx"]
+[ext_resource type="PackedScene" uid="uid://646wvoy6ijxk" path="res://scenes/enemies/enemyspawner.tscn" id="24_be7p4"]
+[ext_resource type="PackedScene" uid="uid://bo37ymacm5gil" path="res://scenes/enemies/spawn_manager.tscn" id="24_wppj7"]
+[ext_resource type="PackedScene" uid="uid://b7vkcffg7f3gt" path="res://levels/elements/secret_area.tscn" id="30_78xtq"]
+[ext_resource type="PackedScene" uid="uid://doyk8mr1y4gcs" path="res://scenes/items/interactable_secret.tscn" id="30_kyvf8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og4jy"]
+resource_local_to_scene = true
+albedo_color = Color(0.262745, 0.305882, 0.333333, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2f5n"]
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8pjar"]
+size = Vector2(10, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhqc1"]
+transparency = 1
+cull_mode = 1
+albedo_texture = ExtResource("7_u1hfp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glthw"]
+transparency = 1
+cull_mode = 1
+albedo_texture = ExtResource("8_ttxsm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rm2gj"]
+size = Vector2(50, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ch405"]
+albedo_texture = ExtResource("9_e1cdw")
+roughness_texture = ExtResource("12_6xebv")
+normal_enabled = true
+normal_texture = ExtResource("11_s0e44")
+heightmap_enabled = true
+heightmap_texture = ExtResource("10_fi003")
+uv1_scale = Vector3(20, 20, 20)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0msp0"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xugx"]
+albedo_texture = ExtResource("13_p44vh")
+roughness_texture = ExtResource("16_36ljx")
+normal_enabled = true
+normal_texture = ExtResource("15_be06b")
+heightmap_enabled = true
+heightmap_texture = ExtResource("14_o8vnc")
+refraction_enabled = true
+uv1_scale = Vector3(60, 60, 60)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pkiov"]
+shader = ExtResource("10_fwdgt")
+shader_parameter/skyColor = Color(0.184314, 0.415686, 1, 1)
+shader_parameter/horizonColor = Color(0.427451, 0.607843, 0.996078, 1)
+shader_parameter/skyTexture = ExtResource("11_g7c20")
+
+[sub_resource type="Sky" id="Sky_m56w8"]
+sky_material = SubResource("ShaderMaterial_pkiov")
+
+[sub_resource type="Environment" id="Environment_5lw8u"]
+background_mode = 2
+sky = SubResource("Sky_m56w8")
+sky_rotation = Vector3(0, -1.5708, 0)
+ambient_light_source = 3
+ambient_light_color = Color(0, 0, 1, 1)
+reflected_light_source = 2
+
+[node name="Layout" type="Node3D"]
+
+[node name="MapElements" type="Node" parent="."]
+
+[node name="Roof" type="CSGBox3D" parent="MapElements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 4)
+visible = false
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 16)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Roof2" type="CSGBox3D" parent="MapElements/Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -4.1, 2)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 12)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="upstairs" type="Node3D" parent="MapElements"]
+
+[node name="Architecture" type="Node3D" parent="MapElements/upstairs"]
+
+[node name="Landing" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 10.5)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.5, 0.01, 3)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Study" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 8)
+use_collision = true
+collision_mask = 3
+size = Vector3(6.75, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="office" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 0, 8)
+use_collision = true
+collision_mask = 3
+size = Vector3(6.75, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="BedRoom" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="BedRoom2" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4, 2, -4)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Window" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, 0, -0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 1.5)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Window3" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65, 0, -0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 1.5)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Window2" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85, 0, -0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 1.5)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Window4" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 1.5)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall2" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4, 2, 12)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall3" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -12, 2, 4)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall4" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 4, 2, 4)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall8" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4, 2, 1.9955)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.5, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="SecretDoor" parent="MapElements/upstairs/Architecture/Wall8" instance=ExtResource("1_36ct8")]
+
+[node name="Wall12" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4, 2, 4)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.5, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall9" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -4, 2, -1)
+use_collision = true
+collision_mask = 3
+size = Vector3(6, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall5" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -2.75, 2, 7)
+use_collision = true
+collision_mask = 3
+size = Vector3(10, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway2" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, -2.38419e-07, 0.6)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall6" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -5.25, 2, 7)
+use_collision = true
+collision_mask = 3
+size = Vector3(10, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 0.6)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall10" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.6, 2, 3.05)
+use_collision = true
+collision_mask = 3
+size = Vector3(6.8, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway2" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall11" type="CSGBox3D" parent="MapElements/upstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -8.65, 2, 3.05)
+use_collision = true
+collision_mask = 3
+size = Vector3(6.7, 0.01, 4)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway3" type="CSGBox3D" parent="MapElements/upstairs/Architecture/Wall11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0999994, 0, 0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Furniture" type="Node3D" parent="MapElements/upstairs"]
+
+[node name="Dresser" type="CSGBox3D" parent="MapElements/upstairs/Furniture"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.755, 0.57, 10.85)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.2, 1.1, 1)
+
+[node name="Dresser2" type="CSGBox3D" parent="MapElements/upstairs/Furniture"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.455, 0.57, -2.05)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.2, 1.1, 1)
+
+[node name="Dresser3" type="CSGBox3D" parent="MapElements/upstairs/Furniture"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.445, 0.57, -2.35)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.2, 1.1, 1)
+
+[node name="TV" type="CSGBox3D" parent="MapElements/upstairs/Furniture"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.50934, 1.64692, 10.9384)
+use_collision = true
+collision_mask = 3
+size = Vector3(1.3, 0.76, 0.1)
+
+[node name="Stand" type="CSGCylinder3D" parent="MapElements/upstairs/Furniture/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00205934, -0.25648, -0.0838563)
+radius = 0.099
+height = 0.5
+
+[node name="Base" type="CSGBox3D" parent="MapElements/upstairs/Furniture/TV"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00205934, -0.506003, 0.0231719)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.75, 0.5, 0.05)
+
+[node name="Couch" parent="MapElements/upstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 0.3, 11)
+
+[node name="Dresser4" type="CSGBox3D" parent="MapElements/upstairs/Furniture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.645, 0.57, 11.45)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.2, 1.1, 1)
+
+[node name="Couch4" parent="MapElements/upstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.8, 0.3, 10.6)
+
+[node name="Couch2" parent="MapElements/upstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 3.3, 0.3, 4.5)
+
+[node name="Couch3" parent="MapElements/upstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -11.3, 0.3, 3.6)
+
+[node name="Shelving" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.3, 3.5)
+
+[node name="Shelving3" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.6, 0.2, 0.3)
+
+[node name="Shelving5" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.6, 0.3, 7.5)
+
+[node name="Shelving6" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.7, 0.2, 4.1)
+
+[node name="Shelving7" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.7, 0.2, 5.6)
+
+[node name="Shelving8" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.7, 0.2, 7.1)
+
+[node name="Shelving9" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.7, 0.2, 8.6)
+
+[node name="Shelving4" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.5, 0.2, -0.6)
+
+[node name="Bed" parent="MapElements/upstairs/Furniture" instance=ExtResource("3_4lc1x")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.3, 0.7, -2.23517e-08)
+
+[node name="WallLight" parent="MapElements/upstairs/Furniture" instance=ExtResource("1_we1td")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.4, 1.5, 1.9)
+
+[node name="WallLight4" parent="MapElements/upstairs/Furniture" instance=ExtResource("1_we1td")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.3, 2.3, 2.6)
+
+[node name="WallLight2" parent="MapElements/upstairs/Furniture" instance=ExtResource("1_we1td")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.1, 2.3, 11.9)
+
+[node name="WallLight3" parent="MapElements/upstairs/Furniture" instance=ExtResource("1_we1td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7, 2.3, 3.1)
+
+[node name="Table5" parent="MapElements/upstairs/Furniture" instance=ExtResource("5_pdwtv")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -2.1, 0.1, 2.5)
+
+[node name="Table6" parent="MapElements/upstairs/Furniture" instance=ExtResource("5_pdwtv")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -5.8, 0.1, 2.5)
+
+[node name="BunkBed" parent="MapElements/upstairs/Furniture" instance=ExtResource("6_5qvay")]
+transform = Transform3D(-7.64949e-08, 0, -1.75, 0, 1.75, 0, 1.75, 0, -7.64949e-08, -10.2, 0.33, 0.1)
+
+[node name="Door3" parent="MapElements/upstairs/Furniture" instance=ExtResource("5_r55rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9, 1.55, 12)
+size = Vector3(1.5, 3, 0.1)
+
+[node name="Toilet" parent="MapElements/upstairs/Furniture" instance=ExtResource("8_o4scp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0.3, 3.5)
+
+[node name="Sink" parent="MapElements/upstairs/Furniture" instance=ExtResource("9_pe8bh")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.775, 0, 4.37114e-08, 0, -0.5, -4.9, 0.1, 3.6)
+
+[node name="downstairs" type="Node3D" parent="MapElements"]
+
+[node name="Architecture" type="Node3D" parent="MapElements/downstairs"]
+
+[node name="LivingRoom" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Den" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -3.5, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Kitchen" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -3.5, 8)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="DiningRoom" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 8)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="DiningRoom2" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -3.5, 6)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 12)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall7" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1.05, 0, 1, -4.5897e-08, -4, -1.76, -4)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Window" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75, -1.76, -0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 1.5)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Window2" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, -1.76, -0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 1.5)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Window3" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2, -1.76, -0.5)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(2, 0.03, 1.5)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall8" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1.05, 0, 1, -4.5897e-08, -4, -1.76, 12)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall11" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8, -1.76, 12)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall14" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8, -1.76, 0)
+use_collision = true
+collision_mask = 3
+size = Vector3(8, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall15" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 12, -1.76, 6)
+use_collision = true
+collision_mask = 3
+size = Vector3(12, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall16" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.75, -1.76, 2.5)
+use_collision = true
+collision_mask = 3
+size = Vector3(13, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway3" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall16"]
+transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -8.74228e-08, -1, 4.37114e-08, 4.37118e-08, 4.37114e-08, 1, 4.5, -2.86102e-06, 0.3)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(3, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall17" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -5.25, -1.76, 2.5)
+use_collision = true
+collision_mask = 3
+size = Vector3(13, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway2" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall17"]
+transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -8.74228e-08, -1, 4.37114e-08, 4.37118e-08, 4.37114e-08, 1, 4.5, 0, 0.3)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(3, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall9" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1.05, 1, -4.37114e-08, -4.5897e-08, -12, -1.76, 4)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Wall10" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1.05, 1, -4.37114e-08, -4.5897e-08, 4, -1.76, 4)
+use_collision = true
+collision_mask = 3
+size = Vector3(16, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway4" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, -4.76837e-07, 0.299999)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(1.5, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall12" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.65, -1.75, 6.05)
+use_collision = true
+collision_mask = 3
+size = Vector3(6.7, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway3" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0, 0.3)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(2.5, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="Wall13" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -8.65, -1.85, 6.05)
+use_collision = true
+collision_mask = 3
+size = Vector3(6.7, 0.01, 3.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Doorway3" type="CSGBox3D" parent="MapElements/downstairs/Architecture/Wall13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 0.2)
+operation = 2
+use_collision = true
+collision_layer = 0
+size = Vector3(2.5, 0.03, 3)
+material = SubResource("StandardMaterial3D_k2f5n")
+
+[node name="UnderstairShelves" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.26326e-15, 0, 1.06581e-14, 0.4, -4, -2.65, 7.7)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.5, 0.01, 6.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="UnderstairShelves2" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.26326e-15, 0, 1.06581e-14, 0.4, -4, -1.85, 7.7)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.5, 0.01, 6.5)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="UnderstairShelves3" type="CSGBox3D" parent="MapElements/downstairs/Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, -4.26326e-15, 0, 1.06581e-14, 0.4, -4, -1.05, 8.24)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.5, 0.01, 3.8)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Furniture" type="Node3D" parent="MapElements/downstairs"]
+
+[node name="WallLight" parent="MapElements/downstairs/Furniture" instance=ExtResource("1_we1td")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.9, -0.95, -1.6)
+
+[node name="WallLight2" parent="MapElements/downstairs/Furniture" instance=ExtResource("1_we1td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1, -0.95, -3.9)
+
+[node name="WallLight3" parent="MapElements/downstairs/Furniture" instance=ExtResource("1_we1td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7, -0.95, 6.1)
+
+[node name="DiningSet" parent="MapElements/downstairs/Furniture" instance=ExtResource("1_i0h7i")]
+transform = Transform3D(-4.37114e-08, 0, 0.9, 0, 1, 0, -1, 0, -3.93403e-08, 2.145, -3.25, 8.752)
+
+[node name="Couch" parent="MapElements/downstairs/Furniture" instance=ExtResource("4_3ymro")]
+transform = Transform3D(-5.46392e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.46392e-08, 2.3, -3.2, 0.9)
+
+[node name="Couch4" parent="MapElements/downstairs/Furniture" instance=ExtResource("4_3ymro")]
+transform = Transform3D(-5.46392e-08, 0, -1.25, 0, 1.25, 0, 1.25, 0, -5.46392e-08, 2.3, -3.2, 5.6)
+
+[node name="Couch2" parent="MapElements/downstairs/Furniture" instance=ExtResource("4_3ymro")]
+transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, -11.6, -3.2, 2.9)
+
+[node name="Couch3" parent="MapElements/downstairs/Furniture" instance=ExtResource("4_3ymro")]
+transform = Transform3D(-1.02394, 0, 0.286788, 0, 1.25, 0, -0.71697, 0, -0.409576, -11.4, -3.2, -0.4)
+
+[node name="Table" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_pdwtv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -3.5, -3.1)
+
+[node name="Table2" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_pdwtv")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.6, -3.5, 5.4)
+
+[node name="Table5" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_pdwtv")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -11.6, -3.5, -3.2)
+
+[node name="Table3" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_pdwtv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2, -3.5, 6.9)
+
+[node name="Couch5" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.3, -3.2, 8.3)
+
+[node name="Couch6" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.5, -3.2, 7.1)
+
+[node name="Table4" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_pdwtv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, -3.5, 2.5)
+
+[node name="Couch7" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, -3.2, 3.8)
+
+[node name="Couch8" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_onfnr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, -3.2, 1.3)
+
+[node name="Door" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_r55rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, -2.1, -4)
+size = Vector3(1.5, 3, 0.1)
+
+[node name="Door2" parent="MapElements/downstairs/Furniture" instance=ExtResource("5_r55rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2, -2, 12)
+size = Vector3(1.5, 3, 0.1)
+
+[node name="TV" type="CSGBox3D" parent="MapElements/downstairs/Furniture"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.70934, -1.85308, 3.66158)
+use_collision = true
+collision_mask = 3
+size = Vector3(2, 1.5, 0.1)
+
+[node name="Stand" type="CSGCylinder3D" parent="MapElements/downstairs/Furniture/TV"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.00205946, -0.65648, -0.0838561)
+radius = 0.099
+height = 0.5
+
+[node name="Base" type="CSGBox3D" parent="MapElements/downstairs/Furniture/TV"]
+transform = Transform3D(1, 3.55271e-15, 0, 0, -4.37114e-08, -1, -3.55271e-15, 1, -4.37114e-08, 0.00205922, -0.906003, 0.0231719)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.75, 0.5, 0.05)
+
+[node name="Dresser" type="CSGBox3D" parent="MapElements/downstairs/Furniture"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.8, -3.2, 3.75)
+use_collision = true
+collision_mask = 3
+size = Vector3(3, 0.76, 0.91)
+
+[node name="Cabinet" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.5, -3, 11.2)
+
+[node name="Cabinet2" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.5, -3, 10.2)
+
+[node name="Cabinet3" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.5, -3, 9.2)
+
+[node name="Cabinet4" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.5, -3, 8.2)
+
+[node name="Cabinet5" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -3, 11.6)
+
+[node name="Cabinet6" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -3, 11.6)
+
+[node name="Cabinet7" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -3, 11.6)
+
+[node name="Cabinet8" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -3, 11.6)
+
+[node name="Cabinet9" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -3, 11.6)
+
+[node name="Cabinet10" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -3, 11.6)
+
+[node name="Cabinet11" parent="MapElements/downstairs/Furniture" instance=ExtResource("6_65hgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3, 11.6)
+
+[node name="Shelving" parent="MapElements/downstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.7, -3.4, 0.5)
+
+[node name="Shelving6" parent="MapElements/downstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9, -3.4, -3.6)
+
+[node name="Shelving2" parent="MapElements/downstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.3, -3.4, 11.5)
+
+[node name="Shelving3" parent="MapElements/downstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, -3.3, 6.8)
+
+[node name="Shelving4" parent="MapElements/downstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, -3.3, 5.3)
+
+[node name="Shelving5" parent="MapElements/downstairs/Furniture" instance=ExtResource("8_4h3k2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, -3.3, 3.8)
+
+[node name="Stairs" type="CSGBox3D" parent="MapElements"]
+transform = Transform3D(1, 0, 0, 0, 0.829038, 0.559193, 0, -0.559193, 0.829038, -4, -1.95, 6.12)
+use_collision = true
+collision_mask = 3
+size = Vector3(2.5, 0.01, 7)
+material = SubResource("StandardMaterial3D_og4jy")
+
+[node name="Outside" type="Node3D" parent="MapElements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="MapElements/Outside"]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 0, 0.2, -15.2)
+mesh = SubResource("QuadMesh_8pjar")
+material = SubResource("StandardMaterial3D_jhqc1")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="MapElements/Outside"]
+transform = Transform3D(-0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808, -5, 0.6, -20.2)
+mesh = SubResource("QuadMesh_8pjar")
+material = SubResource("StandardMaterial3D_glthw")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="MapElements/Outside"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, -0.9, -19)
+flip_faces = true
+mesh = SubResource("QuadMesh_rm2gj")
+material = SubResource("StandardMaterial3D_ch405")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="MapElements/Outside"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, -1, -19)
+flip_faces = true
+mesh = SubResource("QuadMesh_0msp0")
+material = SubResource("StandardMaterial3D_3xugx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="MapElements"]
+environment = SubResource("Environment_5lw8u")
+
+[node name="Player" parent="." instance=ExtResource("1_5mbig")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -9.9, 0.9, -2.4)
+
+[node name="Spawn Manager" parent="." instance=ExtResource("24_wppj7")]
+
+[node name="EnemySpawner" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 3, -0.8)
+
+[node name="EnemySpawner5" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8, 3.2, 0.599999)
+
+[node name="EnemySpawner6" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3, -0.7, -3.5)
+
+[node name="EnemySpawner27" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, -0.7, 0.199999)
+
+[node name="EnemySpawner29" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, -0.7, 0.799999)
+
+[node name="EnemySpawner34" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, -2.3, 0.799999)
+
+[node name="EnemySpawner40" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, -3.1, 0.0999989)
+
+[node name="EnemySpawner41" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8, -2.5, 5)
+
+[node name="EnemySpawner43" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, -2.4, 5.4)
+
+[node name="EnemySpawner44" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, -2.2, 11.4)
+
+[node name="EnemySpawner79" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -2.2, 11.6)
+
+[node name="EnemySpawner78" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, -3.1, 6.4)
+
+[node name="EnemySpawner57" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -2.2, 11.5)
+
+[node name="EnemySpawner58" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, -2.2, 11.5)
+
+[node name="EnemySpawner59" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, -0.6, 11.5)
+
+[node name="EnemySpawner60" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9, -0.6, 11.5)
+
+[node name="EnemySpawner63" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.6, 7.2)
+
+[node name="EnemySpawner64" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.6, 5.7)
+
+[node name="EnemySpawner67" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -1.3, 5.7)
+
+[node name="EnemySpawner68" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -1.3, 4.9)
+
+[node name="EnemySpawner69" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -2.2, 4.9)
+
+[node name="EnemySpawner70" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3, 4.9)
+
+[node name="EnemySpawner71" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3, 5.6)
+
+[node name="EnemySpawner72" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3, 7.1)
+
+[node name="EnemySpawner73" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -2.1, 6.3)
+
+[node name="EnemySpawner74" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3.1, 3.4)
+
+[node name="EnemySpawner75" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -3.1, 2.6)
+
+[node name="EnemySpawner76" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, -2.2, -3)
+
+[node name="EnemySpawner77" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, -2.2, 2.3)
+
+[node name="EnemySpawner65" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.6, 4.2)
+
+[node name="EnemySpawner66" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.6, 3.5)
+
+[node name="EnemySpawner61" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9, -1.4, 11.5)
+
+[node name="EnemySpawner62" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9, -3, 11.5)
+
+[node name="EnemySpawner80" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -3, 11.5)
+
+[node name="EnemySpawner81" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7, -3, 0.299999)
+
+[node name="EnemySpawner45" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, -2.2, 7.4)
+
+[node name="EnemySpawner46" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, -2.2, 8.6)
+
+[node name="EnemySpawner47" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -2.2, 7.4)
+
+[node name="EnemySpawner48" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -2.2, 8.6)
+
+[node name="EnemySpawner49" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, -2.2, 7.4)
+
+[node name="EnemySpawner50" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, -2.2, 8.6)
+
+[node name="EnemySpawner51" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, -1.5, 8.6)
+
+[node name="EnemySpawner52" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -1.5, 8.6)
+
+[node name="EnemySpawner53" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, -1.5, 8.6)
+
+[node name="EnemySpawner54" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, -0.7, 8.6)
+
+[node name="EnemySpawner55" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.7, 8.6)
+
+[node name="EnemySpawner56" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, -0.7, 8.6)
+
+[node name="EnemySpawner15" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6, -1.5, -3.5)
+
+[node name="EnemySpawner21" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3, -2.3, -3.5)
+
+[node name="EnemySpawner42" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6, -2.3, -3.2)
+
+[node name="EnemySpawner23" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6, -3.1, -3.5)
+
+[node name="EnemySpawner7" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 2.4, 4.5)
+
+[node name="EnemySpawner9" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 1.6, 5.6)
+
+[node name="EnemySpawner10" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 2.9, 6.7)
+
+[node name="EnemySpawner11" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 1.6, 6.7)
+
+[node name="EnemySpawner12" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 0.5, 7.4)
+
+[node name="EnemySpawner13" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 1.6, 8.5)
+
+[node name="EnemySpawner14" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2, 1.5, 11.6)
+
+[node name="EnemySpawner8" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 0.8, 4.1)
+
+[node name="EnemySpawner4" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 2.8, 8.9)
+
+[node name="EnemySpawner3" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 2.3, 7.2)
+
+[node name="EnemySpawner35" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 1.5, -2.8)
+
+[node name="EnemySpawner36" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 1.5, -1.4)
+
+[node name="EnemySpawner37" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 1.5, -2.1)
+
+[node name="EnemySpawner24" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 2.9, -0.0999999)
+
+[node name="EnemySpawner25" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 2.2, -0.0999999)
+
+[node name="EnemySpawner26" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 1.2, -0.0999999)
+
+[node name="EnemySpawner28" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.6, -0.0999999)
+
+[node name="EnemySpawner30" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 2.9, 0.6)
+
+[node name="EnemySpawner31" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 2.2, 0.6)
+
+[node name="EnemySpawner32" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 1.3, 0.6)
+
+[node name="EnemySpawner38" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.3, 2.4)
+
+[node name="EnemySpawner39" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 2.5)
+
+[node name="EnemySpawner33" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.6, 0.6)
+
+[node name="EnemySpawner16" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.8, 7.9)
+
+[node name="EnemySpawner17" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.6, 11.6)
+
+[node name="EnemySpawner18" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.3, 3.4)
+
+[node name="EnemySpawner20" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 2.3, 3.4)
+
+[node name="EnemySpawner22" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.5, 3.4)
+
+[node name="EnemySpawner19" parent="Spawn Manager" instance=ExtResource("24_be7p4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0.8, 3.6)
+
+[node name="InteractableSecret" parent="." instance=ExtResource("30_kyvf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 1.5, 1.7)
+
+[node name="SecretArea" parent="." instance=ExtResource("30_78xtq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 0.6, 2.7)

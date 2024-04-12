@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dby3xloo5jvw2"]
+
+[node name="Toilet" type="Node3D"]
+
+[node name="Back" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.369275, 0.405659, -3.2283e-08)
+use_collision = true
+collision_mask = 3
+size = Vector3(0.227271, 0.483643, 0.75)
+
+[node name="Seat" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.121694, -0.0194109, -2.18557e-08)
+radius = 0.396204
+height = 0.396704
+cone = true
+
+[node name="Water" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.121694, -0.0194109, -2.18557e-08)
+radius = 0.285312
+height = 0.396704
+cone = true
+
+[node name="Stem" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.121694, -0.0366845, -2.18557e-08)
+radius = 0.211576
+height = 0.396704
+
+[node name="Base" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.121694, -0.19712, -2.18557e-08)
+radius = 0.319848
+height = 0.0800234

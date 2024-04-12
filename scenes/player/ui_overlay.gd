@@ -4,6 +4,8 @@ extends Control
 @onready var cross_hair = $CanvasLayer/CrossHair
 @onready var timer_interaction: Timer = $InteractionTimer
 @onready var ui_animation_player = $CanvasLayer/UIAnimationPlayer
+@onready var notifications = $CanvasLayer/HBoxContainer/Notifications
+@onready var notification_timer = $CanvasLayer/HBoxContainer/Notifications/NotificationTimer
 
 var time_to_interact = 2.0
 
@@ -13,6 +15,8 @@ func _ready():
 	SignalBus.connect("interaction_stopped", interaction_stopped)
 	SignalBus.connect("weapon_swapping", weapon_swapping)
 	SignalBus.connect("weapon_swapping_end", weapon_swapping_end)
+	SignalBus.connect("open_secret", open_secret)
+	SignalBus.connect("secret_entered", secret_entered)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -47,3 +51,16 @@ func weapon_swapping_end():
 	ui_animation_player.hide()
 	ui_animation_player.stop()
 
+
+func open_secret() -> void:
+	notification_timer.start()
+	notifications.set_text("A door has opened somewhere!")
+
+
+func _on_notification_timer_timeout():
+	notifications.set_text("")
+
+
+func secret_entered() -> void:
+	notification_timer.start()
+	notifications.set_text("Achievement Unlocked!\nNo Toilets in Nuke House")

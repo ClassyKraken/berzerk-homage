@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhbwskayi2rny"]
+
+[ext_resource type="Texture2D" uid="uid://88h5qv2cd7ed" path="res://scenes/enemies/enemy sprites/purple_destroyed.png" id="1_pilum"]
+[ext_resource type="Script" path="res://scenes/enemies/dead_enemey.gd" id="1_v6hqq"]
+[ext_resource type="PackedScene" uid="uid://s38t25rckkwa" path="res://resources/FX/effects_explosion.tscn" id="3_jq7ch"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r42js"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_n35p7"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1507"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("1_pilum")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[node name="DeadEnemey" type="StaticBody3D"]
+script = ExtResource("1_v6hqq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_r42js")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+mesh = SubResource("QuadMesh_n35p7")
+surface_material_override/0 = SubResource("StandardMaterial3D_i1507")
+
+[node name="EffectsExplosion" parent="." instance=ExtResource("3_jq7ch")]

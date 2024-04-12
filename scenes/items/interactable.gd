@@ -21,6 +21,7 @@ func _ready():
 
 func interaction_started():
 	SignalBus.interacting.emit()
+	print("interacting")
 
 
 func interaction_stopped():

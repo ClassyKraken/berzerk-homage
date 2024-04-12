@@ -11,3 +11,6 @@ signal weapon_swapping()
 signal weapon_swapping_end()
 
 signal level_change(destination)
+
+signal open_secret()
+signal secret_entered()

@@ -1,10 +1,12 @@
+class_name Player
 extends CharacterBody3D
 
 @onready var camera_mount = $CameraMount
-@onready var ray_player = $RayPlayer
+@onready var ray_player = $CameraMount/RayPlayer
 @onready var timer_button_press = $TimerButtonPress
 @onready var muzzle = $CameraMount/Muzzle
 @onready var inventory_manager = $InventoryManager
+@onready var hands = $CameraMount/Hands
 
 
 @export var PLAYER_SPEED = 5.0
@@ -17,8 +19,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var player_inventory: Array = []
 var weapon_switch = 0
 var current_weapon = null
+var can_interact = false
+var target
 
 func _ready() -> void:
+	SignalBus.connect("interaction_complete", interaction_complete)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player_inventory = inventory_manager.get_children()
 	for child in player_inventory:
@@ -50,9 +55,11 @@ func _input(event) -> void:
 	
 	if Input.is_action_just_pressed("interact"):
 		ray_player.force_raycast_update()
-		var target = ray_player.get_collider()
+		target = ray_player.get_collider()
+		print("target ", target)
 		if current_weapon.type == 0 and target is Interactable:
-			SignalBus.interaction_started.emit()
+			print("whoa")
+			SignalBus.interacting.emit()
 		elif current_weapon.type == 0 and target is Door:
 			target.change_level()
 		else:
@@ -125,4 +132,8 @@ func switch_weapon(weapon_switch):
 
 func add_to_inventory(item):
 	print("add to inv")
-	
+
+
+func interaction_complete() -> void:
+	print("complete target ", target)
+	target.interaction_complete()
