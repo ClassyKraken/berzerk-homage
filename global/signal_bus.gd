@@ -14,3 +14,5 @@ signal level_change(destination)
 
 signal open_secret()
 signal secret_entered()
+
+signal options_menu()

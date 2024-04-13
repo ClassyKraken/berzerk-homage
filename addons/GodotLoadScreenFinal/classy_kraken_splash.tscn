@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhcml7g4l3ctw"]
+
+[ext_resource type="FontFile" uid="uid://cqvvxlbg8qfw1" path="res://resources/fonts/Blackwood Castle.ttf" id="1_yfnpr"]
+[ext_resource type="Texture2D" uid="uid://ck0g6f8vfdk6g" path="res://addons/GodotLoadScreenFinal/ClassyKrakenLarge.png" id="2_16l62"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3e1hd"]
+font = ExtResource("1_yfnpr")
+font_size = 56
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_45jcm"]
+font = ExtResource("1_yfnpr")
+font_size = 56
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ClassyKrakenSplash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -193.0
+offset_right = 74.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Classy"
+label_settings = SubResource("LabelSettings_3e1hd")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 6
+texture = ExtResource("2_16l62")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Kraken"
+label_settings = SubResource("LabelSettings_45jcm")
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2

@@ -13,3 +13,4 @@ func _process(delta):
 
 func interaction_complete() -> void:
 	SignalBus.open_secret.emit()
+	queue_free()

@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://cjjikmrmoh7f3"]
+
+[ext_resource type="Script" path="res://levels/main_menu.gd" id="1_l16ln"]
+[ext_resource type="Script" path="res://scenes/player/menu_camera.gd" id="2_kbqhc"]
+[ext_resource type="PackedScene" uid="uid://dgqwkw8d8waow" path="res://scenes/player/ui_overlay.tscn" id="3_qlgu1"]
+[ext_resource type="PackedScene" uid="uid://behbdw74qgs6h" path="res://scenes/weapons/gun_squirt.tscn" id="4_qscoq"]
+[ext_resource type="Texture2D" uid="uid://c62aobjtevmkm" path="res://resources/sprites/Screen.png" id="5_1kf0b"]
+[ext_resource type="Script" path="res://levels/buttons/button_quit_yes.gd" id="6_n1lgc"]
+[ext_resource type="Script" path="res://levels/buttons/button_quit_no.gd" id="7_mnw35"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnd7l"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnrvp"]
+albedo_texture = ExtResource("5_1kf0b")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rssr8"]
+material = SubResource("StandardMaterial3D_rnrvp")
+size = Vector2(20, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ic1v2"]
+albedo_color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cd16"]
+albedo_color = Color(0, 0.0705882, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m26in"]
+size = Vector3(3, 1, 0.5)
+
+[node name="exit_menu" type="Node3D"]
+script = ExtResource("1_l16ln")
+
+[node name="CameraMount" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.30987)
+
+[node name="MenuCamera" type="Camera3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.27095)
+script = ExtResource("2_kbqhc")
+
+[node name="UIOverlay" parent="CameraMount/MenuCamera" instance=ExtResource("3_qlgu1")]
+metadata/_edit_use_anchors_ = true
+
+[node name="GunSquirt" parent="CameraMount/MenuCamera" instance=ExtResource("4_qscoq")]
+
+[node name="Muzzle" type="Node3D" parent="CameraMount/MenuCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.05823)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05683)
+flip_faces = true
+size = Vector3(26, 10, 10)
+material = SubResource("StandardMaterial3D_lnd7l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.97836)
+mesh = SubResource("QuadMesh_rssr8")
+skeleton = NodePath("../..")
+
+[node name="ButtonOptions2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70032, -6.80094)
+collision_mask = 16
+
+[node name="Label3D" type="Label3D" parent="ButtonOptions2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.250566)
+modulate = Color(1, 1, 0.117647, 1)
+text = "Are you sure you want to quit?"
+font_size = 150
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ButtonOptions2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00747681, 0, 0)
+size = Vector3(11.5219, 1, 0.5)
+material = SubResource("StandardMaterial3D_ic1v2")
+
+[node name="ButtonQuitYes" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14936, -6.80094)
+collision_mask = 16
+script = ExtResource("6_n1lgc")
+
+[node name="Label3D" type="Label3D" parent="ButtonQuitYes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.250566)
+modulate = Color(1, 1, 0.117647, 1)
+text = "Yes"
+font_size = 150
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ButtonQuitYes"]
+size = Vector3(3, 1, 0.5)
+material = SubResource("StandardMaterial3D_2cd16")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonQuitYes"]
+shape = SubResource("BoxShape3D_m26in")
+
+[node name="ButtonQuitNo" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.88284, -6.80094)
+collision_mask = 16
+script = ExtResource("7_mnw35")
+
+[node name="Label3D" type="Label3D" parent="ButtonQuitNo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.250566)
+modulate = Color(1, 1, 0.117647, 1)
+text = "No"
+font_size = 150
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ButtonQuitNo"]
+size = Vector3(3, 1, 0.5)
+material = SubResource("StandardMaterial3D_2cd16")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonQuitNo"]
+shape = SubResource("BoxShape3D_m26in")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999657, 0.026177, 6.03478e-10, -0.0188301, 0.719093, 0.694658, 0.018184, -0.69442, 0.71934, 0, 2, 7)

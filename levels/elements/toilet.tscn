@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dby3xloo5jvw2"]
+[gd_scene load_steps=2 format=3 uid="uid://dby3xloo5jvw2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdct4"]
+albedo_color = Color(0, 0.321569, 1, 0.278431)
 
 [node name="Toilet" type="Node3D"]
 
@@ -14,16 +17,23 @@ radius = 0.396204
 height = 0.396704
 cone = true
 
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Seat"]
+transform = Transform3D(1, 0, 0, 3.39705e-23, 1, -2.22044e-16, 5.68434e-14, 0, 1, -0.001, -0.15, 0)
+operation = 2
+radius = 0.25
+height = 0.2
+
 [node name="Water" type="CSGCylinder3D" parent="."]
-transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.121694, -0.0194109, -2.18557e-08)
+transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.122, -0.05, 0)
 radius = 0.285312
 height = 0.396704
 cone = true
+material = SubResource("StandardMaterial3D_sdct4")
 
 [node name="Stem" type="CSGCylinder3D" parent="."]
-transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.121694, -0.0366845, -2.18557e-08)
+transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.122, -0.09, 0)
 radius = 0.211576
-height = 0.396704
+height = 0.15
 
 [node name="Base" type="CSGCylinder3D" parent="."]
 transform = Transform3D(0.999987, -0.00518359, 8.74216e-08, -0.00518359, -0.999987, -4.53164e-10, 8.74228e-08, 0, -1, 0.121694, -0.19712, -2.18557e-08)

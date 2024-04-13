@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://nfqjxsumdfni"]
 
 [ext_resource type="Texture2D" uid="uid://cfqc5lt01k81w" path="res://scenes/enemies/enemy sprites/purple_enemy.png" id="1_oc6ud"]
-[ext_resource type="Script" path="res://resources/enemy_resource.gd" id="1_t5htb"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy_resource.gd" id="1_t5htb"]
 [ext_resource type="Texture2D" uid="uid://88h5qv2cd7ed" path="res://scenes/enemies/enemy sprites/purple_destroyed.png" id="2_5nb74"]
 
 [resource]

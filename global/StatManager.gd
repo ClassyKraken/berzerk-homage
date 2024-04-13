@@ -1,5 +1,18 @@
 extends Node
 
+@export var mouse_x_sensitivity : float = 0.1
+@export var mouse_y_sensitivity : float = 0.1
+@export var mouse_invert : bool = false
+
+
+var resolutions_list = [
+"812 x 375 (19.5:9)",
+"3840 x 1772 (19.5:9)",
+"1920 x 1080 (16:9)",
+"2560 x 1440 (16:9)",
+"1440 x 900 (16:10)",
+"2560 x 1600 (16:10)",
+]
 
 var stats_dict = {
 	num_enemies : remaining_enemies,
@@ -26,7 +39,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func save_stats():
 	pass
 
@@ -42,3 +54,7 @@ func update_stats():
 	print("remaining enemies ", remaining_enemies)
 	print("kills ", kills)
 
+
+func update_options():
+	pass
+	

@@ -1,4 +1,18 @@
-[gd_scene format=3 uid="uid://do2qrqxtgotth"]
+[gd_scene load_steps=5 format=3 uid="uid://do2qrqxtgotth"]
+
+[ext_resource type="Texture2D" uid="uid://cer6yc286j2e5" path="res://resources/textures/Wood_11-512x512.png" id="1_ylb3k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njkgl"]
+albedo_texture = ExtResource("1_ylb3k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68cth"]
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3q7h"]
+albedo_color = Color(0, 0, 0, 1)
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
 
 [node name="DiningSet" type="Node3D"]
 
@@ -6,39 +20,62 @@
 use_collision = true
 collision_mask = 3
 size = Vector3(0.5, 0.5, 4)
+material = SubResource("StandardMaterial3D_njkgl")
 
 [node name="Back" type="CSGBox3D" parent="Bench2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.249, 0)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.1, 1, 4)
+material = SubResource("StandardMaterial3D_njkgl")
+
+[node name="Bench" type="CSGBox3D" parent="Bench2"]
+transform = Transform3D(-1, 5.21825e-10, -8.74243e-08, 1.04365e-09, 0.999982, -0.00596899, 8.74197e-08, -0.00596899, -0.999982, -0.0215676, -0.0724104, 0.00350945)
+operation = 2
+use_collision = true
+collision_mask = 3
+size = Vector3(0.560059, 0.5, 3.81781)
+material = SubResource("StandardMaterial3D_njkgl")
 
 [node name="Bench" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.40023, 0, 0)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.5, 0.5, 4)
+material = SubResource("StandardMaterial3D_njkgl")
 
 [node name="Back" type="CSGBox3D" parent="Bench"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.249, 0)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.1, 1, 4)
+material = SubResource("StandardMaterial3D_njkgl")
+
+[node name="Bench" type="CSGBox3D" parent="Bench"]
+transform = Transform3D(-1, 5.21825e-10, -8.74243e-08, 1.04365e-09, 0.999982, -0.00596899, 8.74197e-08, -0.00596899, -0.999982, -0.0215676, -0.0724104, 0.00350945)
+operation = 2
+use_collision = true
+collision_mask = 3
+size = Vector3(0.560059, 0.5, 3.81781)
+material = SubResource("StandardMaterial3D_njkgl")
 
 [node name="Table" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.198, 0.52, 0)
 use_collision = true
 collision_mask = 3
 size = Vector3(1.5, 0.1, 4)
+material = SubResource("StandardMaterial3D_68cth")
 
 [node name="Leg" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 1.198, 0.0923047, 1.708)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.5, 0.1, 0.764609)
+material = SubResource("StandardMaterial3D_y3q7h")
 
 [node name="Leg2" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 1.198, 0.0923047, -1.84996)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.5, 0.1, 0.764609)
+material = SubResource("StandardMaterial3D_y3q7h")

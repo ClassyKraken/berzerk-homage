@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6rb2d5f12ge7"]
+
+[sub_resource type="Environment" id="1"]
+background_mode = 4
+background_canvas_max_layer = 3
+glow_enabled = true
+glow_strength = 0.95
+glow_blend_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("1")

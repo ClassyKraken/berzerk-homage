@@ -38,6 +38,13 @@ script = ExtResource("1_0y52t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="UIAnimationPlayer" type="AnimatedSprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(1050, 550)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xc3uy")
+frame_progress = 0.0741354
+
 [node name="InteractionProgress" type="TextureProgressBar" parent="CanvasLayer"]
 visible = false
 anchors_preset = 8
@@ -61,19 +68,66 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -22.5
+offset_top = -22.5
+offset_right = 22.5
+offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="CrossHair" type="ColorRect" parent="CanvasLayer/CrossHair"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_right = 1.0
+offset_bottom = 18.0
+grow_horizontal = 2
 color = Color(1, 1, 1, 0.160784)
 
-[node name="UIAnimationPlayer" type="AnimatedSprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(1064, 561)
-sprite_frames = SubResource("SpriteFrames_xc3uy")
-frame_progress = 0.0741354
+[node name="CrossHair2" type="ColorRect" parent="CanvasLayer/CrossHair"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -18.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 1, 0.160784)
+
+[node name="CrossHair3" type="ColorRect" parent="CanvasLayer/CrossHair"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -1.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_vertical = 2
+rotation = 1.5708
+color = Color(1, 1, 1, 0.160784)
+
+[node name="CrossHair4" type="ColorRect" parent="CanvasLayer/CrossHair"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 17.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5708
+color = Color(1, 1, 1, 0.160784)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(300, 50)
@@ -94,10 +148,132 @@ horizontal_alignment = 1
 wait_time = 3.0
 one_shot = true
 
+[node name="MenuWindow" type="Window" parent="CanvasLayer"]
+title = "Menu"
+initial_position = 1
+size = Vector2i(100, 136)
+visible = false
+wrap_controls = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuWindow"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonMainMenu" type="Button" parent="CanvasLayer/MenuWindow/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="ButtonOptions" type="Button" parent="CanvasLayer/MenuWindow/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/MenuWindow/VBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ButtonQuit" type="Button" parent="CanvasLayer/MenuWindow/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="PopupMenu" type="PopupMenu" parent="CanvasLayer"]
+
+[node name="OptionsMenu" type="Window" parent="CanvasLayer"]
+title = "Options"
+position = Vector2i(0, 36)
+size = Vector2i(150, 181)
+visible = false
+wrap_controls = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OptionsMenu"]
+offset_right = 150.0
+offset_bottom = 181.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Windowed"
+
+[node name="WindowedButton" type="CheckButton" parent="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Mouse Invert"
+
+[node name="MouseInvertButton" type="CheckButton" parent="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Mouse x sensivity"
+
+[node name="XSens" type="HSlider" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+min_value = 0.1
+max_value = 0.9
+step = 0.1
+value = 0.1
+tick_count = 9
+ticks_on_borders = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Mouse y sensivity"
+
+[node name="YSens" type="HSlider" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+min_value = 0.1
+max_value = 0.9
+step = 0.1
+value = 0.1
+tick_count = 9
+ticks_on_borders = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OptionsOk" type="Button" parent="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Ok"
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
 [node name="InteractionTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="CanvasLayer/HBoxContainer/Notifications/NotificationTimer" to="." method="_on_notification_timer_timeout"]
+[connection signal="close_requested" from="CanvasLayer/MenuWindow" to="." method="_on_menu_window_close_requested"]
+[connection signal="pressed" from="CanvasLayer/MenuWindow/VBoxContainer/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuWindow/VBoxContainer/ButtonOptions" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuWindow/VBoxContainer/ButtonCancel" to="." method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuWindow/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="close_requested" from="CanvasLayer/OptionsMenu" to="." method="_on_options_menu_close_requested"]
+[connection signal="item_selected" from="CanvasLayer/OptionsMenu/VBoxContainer/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="pressed" from="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer3/WindowedButton" to="." method="_on_windowed_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer2/MouseInvertButton" to="." method="_on_check_button_pressed"]
+[connection signal="drag_ended" from="CanvasLayer/OptionsMenu/VBoxContainer/XSens" to="." method="_on_x_sens_drag_ended"]
+[connection signal="drag_ended" from="CanvasLayer/OptionsMenu/VBoxContainer/YSens" to="." method="_on_y_sens_drag_ended"]
+[connection signal="pressed" from="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer/OptionsOk" to="." method="_on_options_ok_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsMenu/VBoxContainer/HBoxContainer/ButtonCancel" to="." method="_on_button_cancel_pressed"]
 [connection signal="timeout" from="InteractionTimer" to="." method="_on_timer_timeout"]

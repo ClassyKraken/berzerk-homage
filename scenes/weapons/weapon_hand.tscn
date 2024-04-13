@@ -1,46 +1,46 @@
 [gd_scene load_steps=14 format=3 uid="uid://u0xb83dj1aib"]
 
 [ext_resource type="Script" path="res://scenes/weapons/weapon_hand.gd" id="1_rumci"]
-[ext_resource type="Texture2D" uid="uid://nck73tq4h3og" path="res://resources/sprites/Sgun 120x168.png.png" id="2_cg530"]
+[ext_resource type="Texture2D" uid="uid://nck73tq4h3og" path="res://resources/sprites/Hand 120x168.png" id="2_is0kl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_utnnl"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(0, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5sjr"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(120, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_81i6u"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(240, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xygxw"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(360, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cich3"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(0, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h31al"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(120, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0mte"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(240, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4p0cy"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(360, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_llvf8"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(0, 0, 120, 168)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42vil"]
-atlas = ExtResource("2_cg530")
+atlas = ExtResource("2_is0kl")
 region = Rect2(120, 0, 120, 168)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivwuf"]
@@ -107,21 +107,20 @@ weapon_name = "Hand"
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -323.0
-offset_top = -75.0
-offset_right = -323.0
-offset_bottom = -75.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 0
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="CanvasLayer/Control"]
+position = Vector2(190, -169)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ivwuf")
-animation = &"action-loop"
+animation = &"walking"
+frame_progress = 0.771241
 
 [node name="GunRays" type="Node3D" parent="."]
 

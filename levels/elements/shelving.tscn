@@ -1,49 +1,62 @@
-[gd_scene format=3 uid="uid://dlec5x1dx0dob"]
+[gd_scene load_steps=3 format=3 uid="uid://dlec5x1dx0dob"]
+
+[ext_resource type="Texture2D" uid="uid://cgh0qfvdysl5a" path="res://resources/textures/Wood_03-512x512.png" id="1_asw1h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xb5l2"]
+albedo_texture = ExtResource("1_asw1h")
 
 [node name="shelf2" type="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 use_collision = true
-collision_mask = 3
+collision_mask = 19
 size = Vector3(1.5, 0.01, 0.8)
+material = SubResource("StandardMaterial3D_xb5l2")
 
 [node name="shelf3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37187e-05, 0.8, -0.000193596)
 use_collision = true
 collision_mask = 3
 size = Vector3(1.5, 0.01, 0.8)
+material = SubResource("StandardMaterial3D_xb5l2")
 
 [node name="shelf4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37187e-05, 1.6, -0.000193596)
 use_collision = true
 collision_mask = 3
 size = Vector3(1.5, 0.01, 0.8)
+material = SubResource("StandardMaterial3D_xb5l2")
 
 [node name="shelf9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37187e-05, 2.4, -0.000193596)
 use_collision = true
 collision_mask = 3
 size = Vector3(1.5, 0.01, 0.8)
+material = SubResource("StandardMaterial3D_xb5l2")
 
 [node name="shelf5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
 use_collision = true
 collision_mask = 3
 size = Vector3(1.5, 0.015, 0.8)
+material = SubResource("StandardMaterial3D_xb5l2")
 
 [node name="shelf6" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1.13454, 0, 1, -4.95925e-08, 5.37187e-05, 1.50847, -0.398738)
 use_collision = true
 collision_mask = 3
 size = Vector3(1.5, 0.01, 3)
+material = SubResource("StandardMaterial3D_xb5l2")
 
 [node name="shelf7" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -4.95925e-08, 0, -4.37114e-08, -1.13454, -1, -4.37114e-08, 2.16776e-15, -0.752257, 1.50847, -0.000193596)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.8, 0.01, 3)
+material = SubResource("StandardMaterial3D_xb5l2")
 
 [node name="shelf8" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -4.95925e-08, 0, -4.37114e-08, -1.13454, -1, -4.37114e-08, 2.16776e-15, 0.746172, 1.50847, -0.000193596)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.8, 0.01, 3)
+material = SubResource("StandardMaterial3D_xb5l2")

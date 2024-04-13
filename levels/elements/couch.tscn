@@ -1,27 +1,37 @@
-[gd_scene format=3 uid="uid://cs838kv2ftqrk"]
+[gd_scene load_steps=3 format=3 uid="uid://cs838kv2ftqrk"]
+
+[ext_resource type="Texture2D" uid="uid://c4ko1fouusg83" path="res://resources/textures/4K-fabric_17-ao.jpg" id="1_36qgk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_togwe"]
+albedo_texture = ExtResource("1_36qgk")
+uv1_scale = Vector3(2, 2, 2)
 
 [node name="Couch" type="Node3D"]
 
 [node name="Bench" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 use_collision = true
-collision_mask = 3
+collision_mask = 19
 size = Vector3(0.5, 0.5, 2)
+material = SubResource("StandardMaterial3D_togwe")
 
 [node name="Back" type="CSGBox3D" parent="Bench"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.249, 0)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.1, 1, 2)
+material = SubResource("StandardMaterial3D_togwe")
 
 [node name="Leg" type="CSGBox3D" parent="Bench"]
 transform = Transform3D(1, -1.74846e-07, 7.64274e-15, 0, -4.37114e-08, -1, 1.74846e-07, 1, -4.37114e-08, -0.0220954, 0.0923047, -1.05126)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.541016, 0.1, 0.764609)
+material = SubResource("StandardMaterial3D_togwe")
 
 [node name="Leg2" type="CSGBox3D" parent="Bench"]
 transform = Transform3D(1, -1.74846e-07, 7.64274e-15, 0, -4.37114e-08, -1, 1.74846e-07, 1, -4.37114e-08, -0.0219998, 0.092, 1.05125)
 use_collision = true
 collision_mask = 3
 size = Vector3(0.541016, 0.1, 0.764609)
+material = SubResource("StandardMaterial3D_togwe")

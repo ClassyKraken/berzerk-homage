@@ -6,13 +6,11 @@ extends CharacterBody3D
 @onready var timer_button_press = $TimerButtonPress
 @onready var muzzle = $CameraMount/Muzzle
 @onready var inventory_manager = $InventoryManager
-@onready var hands = $CameraMount/Hands
+@onready var ui_overlay = $UIOverlay
+@onready var timer_game = $TimerGame
 
 
 @export var PLAYER_SPEED = 5.0
-@export var MOUSE_X_SENSITIVITY = 0.1
-@export var MOUSE_Y_SENSITIVITY = 0.1
-@export var mouse_invert = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -23,13 +21,12 @@ var can_interact = false
 var target
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	SignalBus.connect("interaction_complete", interaction_complete)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player_inventory = inventory_manager.get_children()
 	for child in player_inventory:
 		child.hide_weapon()
-	#for weapon in inventory_manager:
-		#weapon.visible = false
 	print("weapons ", player_inventory)
 	if player_inventory.is_empty():
 		print("no weapons")
@@ -38,19 +35,22 @@ func _ready() -> void:
 		print("starting weapon ", current_weapon)
 		print("starting type ", current_weapon.type)
 		current_weapon.show_weapon()
-	
+	timer_game.start()
 
 func _input(event) -> void:
-	if event.is_action_pressed("exit"):
-		get_tree().quit()
+	if Input.is_action_just_pressed("exit"):
+		open_menu()
 	
 	#Camera Movement
 	if event is InputEventMouseMotion:
-		rotation_degrees.y -= event.relative.x * MOUSE_X_SENSITIVITY
+		var mouse_invert = StatManager.mouse_invert
+		var mouse_x_sensitivty = StatManager.mouse_x_sensitivity
+		var mouse_y_sensitivty = StatManager.mouse_y_sensitivity
+		rotation_degrees.y -= event.relative.x * mouse_x_sensitivty
 		if mouse_invert == false:
-			camera_mount.rotation_degrees.x -= event.relative.y * MOUSE_Y_SENSITIVITY
+			camera_mount.rotation_degrees.x -= event.relative.y * mouse_y_sensitivty
 		else:
-			camera_mount.rotation_degrees.x += event.relative.y * MOUSE_Y_SENSITIVITY
+			camera_mount.rotation_degrees.x += event.relative.y * mouse_x_sensitivty
 		camera_mount.rotation_degrees.x = clamp(camera_mount.rotation_degrees.x, -40, 40)
 	
 	if Input.is_action_just_pressed("interact"):
@@ -85,7 +85,7 @@ func _process(delta) -> void:
 	pass
 
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -137,3 +137,8 @@ func add_to_inventory(item):
 func interaction_complete() -> void:
 	print("complete target ", target)
 	target.interaction_complete()
+
+
+func open_menu():
+	#SignalBus.level_change.emit("main_menu")
+	ui_overlay.open_menu()

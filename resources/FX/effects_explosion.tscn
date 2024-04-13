@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://resources/FX/effects_explosion.gd" id="1_kb38h"]
 [ext_resource type="Texture2D" uid="uid://dvluild3hrypw" path="res://resources/sprites/Flare00.PNG" id="1_nhn8h"]
 [ext_resource type="Texture2D" uid="uid://cxr4fbvw1dvgs" path="res://resources/dump folder/GAP_EasyExplosions_Textures/Flare00.PNG" id="2_lq5pf"]
-[ext_resource type="Material" uid="uid://bke1trwbgjqsl" path="res://resources/materials/Mat_Flare00.tres" id="3_x15u4"]
-[ext_resource type="Material" uid="uid://dt0cqk66b2mpx" path="res://resources/materials/flame.tres" id="4_nlbnv"]
-[ext_resource type="Material" uid="uid://bea4m2stnywpw" path="res://resources/materials/smoke.tres" id="5_h4j64"]
+[ext_resource type="Material" uid="uid://bke1trwbgjqsl" path="res://resources/FX/materials/Mat_Flare00.tres" id="3_x15u4"]
+[ext_resource type="Material" uid="uid://dt0cqk66b2mpx" path="res://resources/FX/materials/flame.tres" id="4_nlbnv"]
+[ext_resource type="Material" uid="uid://bea4m2stnywpw" path="res://resources/FX/materials/smoke.tres" id="5_h4j64"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkawl"]
 transparency = 1

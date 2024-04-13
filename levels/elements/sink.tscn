@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://depnj1phyusxy"]
+[gd_scene load_steps=2 format=3 uid="uid://depnj1phyusxy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiq7o"]
+albedo_color = Color(0.435294, 0.435294, 0.435294, 1)
+metallic = 0.09
+metallic_specular = 1.0
 
 [node name="Sink" type="Node3D"]
 
@@ -31,26 +36,29 @@ radius = 0.271198
 height = 0.8
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.685373, 1.16962, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.685373, 1.15, 0)
 use_collision = true
 collision_mask = 3
 radius = 0.0711344
 height = 0.208909
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579, 1.17, 0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579, 1.15, 0.25)
 use_collision = true
 collision_mask = 3
 radius = 0.0711344
 height = 0.208909
+material = SubResource("StandardMaterial3D_fiq7o")
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579, 1.17, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579, 1.15, -0.25)
 use_collision = true
 collision_mask = 3
 radius = 0.0711344
 height = 0.208909
+material = SubResource("StandardMaterial3D_fiq7o")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.494633, 1.24959, 0.0102503)
 size = Vector3(0.512695, 0.0574036, 0.174683)
+material = SubResource("StandardMaterial3D_fiq7o")

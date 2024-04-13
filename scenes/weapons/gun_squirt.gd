@@ -5,6 +5,7 @@ const AMMO_WATER = preload("res://scenes/weapons/ammo_water.tscn")
 
 
 @onready var gun_rays = $GunRays
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +38,7 @@ func weapon_action(muzzle):
 		var new_dart = AMMO_WATER.instantiate()
 		gun_rays.add_child(new_dart)
 		new_dart.global_transform = muzzle
+		audio_stream_player_3d.play()
 		print("shoot water")
 
 

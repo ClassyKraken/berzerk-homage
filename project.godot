@@ -11,14 +11,16 @@ config_version=5
 [application]
 
 config/name="Berzerk"
-run/main_scene="res://levels/layout.tscn"
-config/features=PackedStringArray("4.2", "C#", "Forward Plus")
+run/main_scene="res://addons/splash_screen_wizard/splash_screen_actual.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://global/signal_bus.gd"
 StatManager="*res://global/StatManager.gd"
+SceneManager="*res://global/SceneManager.gd"
 
 [dotnet]
 
@@ -28,6 +30,10 @@ project/assembly_name="Berzerk"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/splash_screen_wizard/plugin.cfg")
 
 [input]
 

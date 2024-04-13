@@ -9,6 +9,7 @@ const DEAD_ENEMEY = preload("res://scenes/enemies/dead_enemey.tscn")
 
 @onready var collider_enemy = $CollisionShape3D
 @onready var mesh_enemy = $MeshInstance3D
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
 
 @export var base_texture : Texture
 @export var destroyed_texture : Texture
@@ -33,4 +34,5 @@ func handle_hit():
 	var destroyed = DEAD_ENEMEY.instantiate()
 	get_tree().root.add_child(destroyed)
 	destroyed.global_transform = self.global_transform
+	audio_stream_player_3d.play()
 	queue_free()

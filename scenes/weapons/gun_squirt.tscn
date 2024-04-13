@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://behbdw74qgs6h"]
+[gd_scene load_steps=11 format=3 uid="uid://behbdw74qgs6h"]
 
 [ext_resource type="Script" path="res://scenes/weapons/gun_squirt.gd" id="1_d7aue"]
 [ext_resource type="Texture2D" uid="uid://d0vro4t2dheep" path="res://resources/sprites/Gun Squirt 74x110.png" id="2_lu8q1"]
+[ext_resource type="AudioStream" uid="uid://bim6m2ngauawg" path="res://resources/audio/Car_Door_Open.ogg" id="3_7xgx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au11b"]
 atlas = ExtResource("2_lu8q1")
@@ -67,20 +68,19 @@ type = 1
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -323.0
-offset_top = -75.0
-offset_right = -323.0
-offset_bottom = -75.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="CanvasLayer/Control"]
-position = Vector2(-4, 19)
+position = Vector2(190, -110)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8i3w0")
 animation = &"idle"
 frame_progress = 0.759029
@@ -88,3 +88,6 @@ frame_progress = 0.759029
 [node name="GunRays" type="Node3D" parent="."]
 
 [node name="Node3D" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_7xgx0")
