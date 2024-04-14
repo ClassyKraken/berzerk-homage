@@ -3,6 +3,7 @@ extends StaticBody3D
 @onready var effects_explosion = $EffectsExplosion
 @onready var audio_stream_player_3d = $AudioStreamPlayer3D
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	effects_explosion.explode()

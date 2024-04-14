@@ -14,6 +14,8 @@ var audio_bus_index : int
 
 var timer_game_running : bool
 
+var play_time : bool
+
 var ui_need : bool
 
 var mission_status = "complete"
@@ -28,10 +30,10 @@ var resolutions_list = [
 "2560 x 1600 (16:10)",
 ]
 
-var stats_dict = {
-	num_enemies : remaining_enemies,
-	player_kills : kills,
-}
+#var stats_dict = {
+	#num_enemies : remaining_enemies,
+	#player_kills : kills,
+#}
 
 
 var starting_enemies : int
@@ -81,9 +83,10 @@ func _process(delta):
 func update_stats():
 	remaining_secrets = starting_secrets - num_secrets
 	remaining_enemies = starting_enemies + num_enemies
-	if timer_game_running and remaining_enemies == 0:
-		mission_status = "complete"
-		end_mission()
+	if play_time == true: 
+		if remaining_enemies == 0:
+			mission_status = "complete"
+			end_mission()
 
 func total_stats():
 	total_secrets = total_secrets + num_secrets
@@ -150,6 +153,7 @@ func end_mission():
 	final_kills = kills
 	final_secrets_found = num_secrets
 	final_secrets_start = starting_secrets
+	StatManager.play_time = false
 	if remaining_enemies > 0:
 		mission_status = "failed"
 	if remaining_enemies <= 0:
@@ -213,3 +217,14 @@ func load_options():
 				print("inv ", mouse_invert)
 				print("xse ", mouse_x_sensitivity)
 				print("yse ", mouse_y_sensitivity)
+
+
+func start_stats():
+	starting_enemies = starting_enemies
+	num_enemies = num_enemies
+	print("starting stats\n",
+	starting_enemies, " should be 40\n",
+	num_enemies, " should be 0\n",
+	kills, " should be 0\n"
+	)
+	

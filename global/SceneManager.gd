@@ -15,6 +15,7 @@ func change_level(destination):
 	StatManager.total_stats()
 	StatManager.save_stats()
 	StatManager.clear_starting()
+	StatManager.play_time = false
 	print("change scene ", destination)
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if destination == "main_menu":

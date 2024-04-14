@@ -129,15 +129,6 @@ uppercase = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05054, -2.86977, -5.15939)
 size = Vector3(5.74261, 2.72169, 1)
 
-[node name="Label3D2" type="Label3D" parent="CSGBox3D/BottomLeftLabel"]
-transform = Transform3D(0.760446, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.232307, 0.208644)
-text = "This wouldn't be possible without a lot
-of awesome free resources.
-Please take a minute to chekc out the
-acknowledgments!"
-font_size = 70
-outline_size = 10
-
 [node name="Label3D" type="Label3D" parent="CSGBox3D/BottomLeftLabel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08178, 0.208)
 outline_modulate = Color(0.0117647, 0.239216, 1, 0.345098)
@@ -145,6 +136,15 @@ text = "Thank you!"
 font = ExtResource("6_rm2p7")
 font_size = 60
 outline_size = 20
+
+[node name="Label3D2" type="Label3D" parent="CSGBox3D/BottomLeftLabel"]
+transform = Transform3D(0.760446, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.232307, 0.208644)
+text = "This wouldn't be possible without a lot
+of awesome free resources.
+Please take a minute to check out the
+acknowledgments!"
+font_size = 70
+outline_size = 10
 
 [node name="BottomRightLable" type="CSGBox3D" parent="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97274, -2.95181, -5.15939)

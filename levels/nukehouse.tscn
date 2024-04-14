@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://levels/nukehouse.gd" id="1_v3pjg"]
 [ext_resource type="Texture2D" uid="uid://duha0b6632jcw" path="res://resources/textures/Carpet012_4K_Color.jpg" id="1_vtebg"]
 [ext_resource type="PackedScene" uid="uid://cqwcmtw5rs2ir" path="res://levels/elements/wall_light.tscn" id="1_we1td"]
-[ext_resource type="Texture2D" uid="uid://ciqa7m0rv8wyf" path="res://resources/dump folder/house textures/decorative_wall_1-4K/decorative_wall_1-4K/4K-grunge_wall_2_basecolor.png" id="2_8f5li"]
+[ext_resource type="Texture2D" uid="uid://ciqa7m0rv8wyf" path="res://resources/textures/4K-grunge_wall_2_basecolor.png" id="2_8f5li"]
 [ext_resource type="Texture2D" uid="uid://di1d4yktr608d" path="res://resources/textures/4K-carpet_floor_3-ao.jpg" id="2_arwcy"]
 [ext_resource type="PackedScene" uid="uid://n20se57cfini" path="res://levels/elements/bed.tscn" id="3_4lc1x"]
 [ext_resource type="PackedScene" uid="uid://cs838kv2ftqrk" path="res://levels/elements/couch.tscn" id="4_3ymro"]
@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://depnj1phyusxy" path="res://levels/elements/sink.tscn" id="9_pe8bh"]
 [ext_resource type="Texture2D" uid="uid://dbtch7pepkdh1" path="res://resources/textures/aerial_asphalt_01/aerial_asphalt_01_disp_4k.jpg" id="10_fi003"]
 [ext_resource type="Shader" path="res://levels/elements/SkyShader.gdshader" id="10_fwdgt"]
-[ext_resource type="Texture2D" uid="uid://1r1o1dtmkq87" path="res://resources/dump folder/AllSkyFree_Sky_ColdSunset_Equirect.png" id="11_g7c20"]
+[ext_resource type="Texture2D" uid="uid://dh6f37jen13jj" path="res://resources/textures/AllSkyFree_Sky_ColdSunset_Equirect.png" id="11_g7c20"]
 [ext_resource type="Texture2D" uid="uid://be00i03fi7rkh" path="res://resources/textures/aerial_asphalt_01/aerial_asphalt_01_nor_gl_4k.jpg" id="11_s0e44"]
 [ext_resource type="Texture2D" uid="uid://ci6tvi77h3ipl" path="res://resources/textures/Tile_13-512x512.png" id="12_03bmi"]
 [ext_resource type="Texture2D" uid="uid://iu87s4hblrju" path="res://resources/textures/aerial_asphalt_01/aerial_asphalt_01_rough_4k.jpg" id="12_6xebv"]
@@ -169,7 +169,6 @@ script = ExtResource("1_v3pjg")
 
 [node name="Roof" type="CSGBox3D" parent="MapElements"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, 4)
-visible = false
 use_collision = true
 collision_mask = 3
 size = Vector3(16, 0.01, 16)
