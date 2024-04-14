@@ -30,7 +30,6 @@ func change_level(destination):
 		get_tree().change_scene_to_file("res://levels/nukehouse.tscn")
 		print("scene manager get tree ", get_tree())
 	if destination == "exit_menu":
-		#get_tree().unload_current_scene()
-		get_tree().change_scene_to_file("res://levels/exit_menu.tscn")
+		get_tree().quit()
 	if destination == "game_over":
 		get_tree().change_scene_to_file("res://levels/game_over.tscn")

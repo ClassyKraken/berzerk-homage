@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://djr642tod2mjh"]
+[gd_scene load_steps=23 format=3 uid="uid://djr642tod2mjh"]
 
 [ext_resource type="Script" path="res://scenes/player/menu_camera.gd" id="1_12s6b"]
 [ext_resource type="Script" path="res://levels/main_menu.gd" id="1_a0a4n"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://levels/buttons/button_options.gd" id="7_xqpt7"]
 [ext_resource type="Texture2D" uid="uid://ck0g6f8vfdk6g" path="res://addons/GodotLoadScreenFinal/ClassyKrakenLarge.png" id="8_ioxsh"]
 [ext_resource type="AudioStream" uid="uid://clfi703d7ckam" path="res://resources/audio/sfx/success-48018.mp3" id="9_sko52"]
+[ext_resource type="Script" path="res://levels/buttons/button_about.gd" id="11_ahqib"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnd7l"]
 albedo_color = Color(0, 0, 0, 1)
@@ -179,7 +180,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.33636, -2.11292, -7.00414)
 mesh = SubResource("QuadMesh_ry8mf")
 
 [node name="ButtonStart" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84553, -6.80094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -6.801)
 collision_mask = 16
 script = ExtResource("6_nmduf")
 
@@ -197,7 +198,7 @@ material = SubResource("StandardMaterial3D_2cd16")
 shape = SubResource("BoxShape3D_m26in")
 
 [node name="ButtonOptions" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.14936, -6.80094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.80094)
 collision_mask = 16
 script = ExtResource("7_xqpt7")
 
@@ -214,8 +215,26 @@ material = SubResource("StandardMaterial3D_2cd16")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonOptions"]
 shape = SubResource("BoxShape3D_m26in")
 
+[node name="ButtonOptions2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -6.80094)
+collision_mask = 16
+script = ExtResource("11_ahqib")
+
+[node name="Label3D" type="Label3D" parent="ButtonOptions2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.250566)
+modulate = Color(1, 1, 0.117647, 1)
+text = "About"
+font_size = 150
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ButtonOptions2"]
+size = Vector3(3, 1, 0.5)
+material = SubResource("StandardMaterial3D_2cd16")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonOptions2"]
+shape = SubResource("BoxShape3D_m26in")
+
 [node name="ButtonExit" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.88284, -6.80094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -6.80094)
 collision_mask = 16
 script = ExtResource("7_2q15l")
 

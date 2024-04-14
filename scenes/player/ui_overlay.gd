@@ -19,6 +19,7 @@ extends Control
 @onready var ma_volume = $CanvasLayer/OptionsMenu/VBoxContainer/MaVolume
 @onready var mu_volume = $CanvasLayer/OptionsMenu/VBoxContainer/MuVolume
 @onready var sfx_volume = $CanvasLayer/OptionsMenu/VBoxContainer/SFXVolume
+@onready var about_menu = $CanvasLayer/AboutMenu
 
 @onready var timer_game = $TimerGame
 
@@ -48,6 +49,7 @@ func _ready():
 	menu_window.hide()
 	options_menu.hide()
 	yesno.hide()
+	about_menu.hide()
 	SignalBus.connect("interacting", interacting)
 	SignalBus.connect("interaction_stopped", interaction_stopped)
 	SignalBus.connect("weapon_swapping", weapon_swapping)
@@ -55,6 +57,7 @@ func _ready():
 	SignalBus.connect("open_secret", open_secret)
 	SignalBus.connect("secret_entered", secret_entered)
 	SignalBus.connect("options_menu", open_options_menu)
+	SignalBus.connect("about_menu", open_about_menu)
 	SignalBus.connect("player_ready", player_ready)
 	SignalBus.connect("prep_ui", prep_ui)
 	SignalBus.connect("bye_ui", bye_ui)
@@ -145,7 +148,7 @@ func _on_button_quit_pressed():
 
 
 func open_options_menu():
-	options_menu.popup_centered()
+	options_menu.show()
 	for resolution in StatManager.resolutions_list:
 			resolution_option.add_item(resolution)
 	windowed_button.set_pressed_no_signal(StatManager.window_mode)
@@ -193,10 +196,13 @@ func _on_windowed_button_pressed():
 	if windowed_button.button_pressed == true:
 		StatManager.window_mode = true
 		StatManager.windowed_mode()
+		options_menu.hide()
+		options_menu.show()
 	elif windowed_button.button_pressed == false:
 		StatManager.window_mode = false
 		StatManager.windowed_mode()
-	print("it's a me")
+		options_menu.hide()
+		options_menu.show()
 
 
 func _on_resolution_option_item_selected(index):
@@ -210,6 +216,7 @@ func commence_game():
 	menu_window.hide()
 	options_menu.hide()
 	yesno.hide()
+	about_menu.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 	timer_game.paused = false
@@ -278,3 +285,15 @@ func _on_sfx_volume_drag_ended(value_changed):
 		pending_sfx_volume = sfx_volume.value
 		StatManager.sfx_volume = clamp(pending_sfx_volume, 0.0, 1.0)
 
+
+func open_about_menu():
+	about_menu.show()
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+
+
+func _on_window_close_requested():
+	commence_game()
+
+
+func _on_button_about_pressed():
+	_on_window_close_requested()

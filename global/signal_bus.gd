@@ -16,6 +16,7 @@ signal open_secret()
 signal secret_entered()
 
 signal options_menu()
+signal about_menu()
 
 signal player_ready()
 

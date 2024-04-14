@@ -1,0 +1,41 @@
+Berzerk At Home
+by Classy Kraken
+https://classykraken.itch.io/
+
+for the Cover Up #1 Game Jam
+https://itch.io/jam/cover-up1
+
+This project would not be possible without the amazing free resources below and many helpful folks online.
+
+=====Acknowledgements=====
+
+FPS Gun Sprites  -  Rekkimaru
+https://rekkimaru.itch.io/fps-gun-sprites
+
+Tin Stumpers (enemy sprites)  -  Lanferna 
+https://lanferna.itch.io/tin-stumpers 
+
+School bus and SWAT van  -  overcrafted
+https://overcrafted.itch.io/free-paid-vehicle-car-sprites-
+
+Skybox  -  Richard Whitelock
+https://godotengine.org/asset-library/asset/579
+
+Lanterns  -  Karsiori 
+https://karsiori.itch.io/free-pixel-art-lantern-pack
+
+Outdoor and Material textures  -  https://cc0-textures.com/
+
+GAP EasyExplosion Textures  -  Gabriel Aguiar 
+https://www.youtube.com/watch?v=tjSxICUXMmM
+
+Music  -  Fredrik Blom 
+https://soundcloud.com/fredrikblom
+
+SFX  -  https://pixabay.com/
+
+Splash Screen Wizard  -  ThePat02
+https://github.com/ThePat02/SplashScreenWizard
+
+Godot Splash Screen  -  ACB_Gamez 
+https://www.youtube.com/watch?v=E4ybJVTXq1A
