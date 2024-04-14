@@ -9,8 +9,11 @@ const AMMO_WATER = preload("res://scenes/weapons/ammo_water.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("readying gun")
 	SignalBus.connect("weapon_action", weapon_action)
+	weapon_sprite.animation_finished.connect(ready_to_act)
 	#self.hide()
+	print("gun ready")
 
 
 func hide_weapon():
@@ -34,12 +37,10 @@ func weapon_action(muzzle):
 	if can_act == true:
 		can_act = false
 		weapon_sprite.play("action")
-		weapon_sprite.animation_finished.connect(ready_to_act)
 		var new_dart = AMMO_WATER.instantiate()
 		gun_rays.add_child(new_dart)
 		new_dart.global_transform = muzzle
 		audio_stream_player_3d.play()
-		print("shoot water")
 
 
 func ready_to_act():

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/weapons/gun_squirt.gd" id="1_d7aue"]
 [ext_resource type="Texture2D" uid="uid://d0vro4t2dheep" path="res://resources/sprites/Gun Squirt 74x110.png" id="2_lu8q1"]
-[ext_resource type="AudioStream" uid="uid://bim6m2ngauawg" path="res://resources/audio/Car_Door_Open.ogg" id="3_7xgx0"]
+[ext_resource type="AudioStream" uid="uid://bim6m2ngauawg" path="res://resources/audio/sfx/Car_Door_Open.ogg" id="3_7xgx0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au11b"]
 atlas = ExtResource("2_lu8q1")

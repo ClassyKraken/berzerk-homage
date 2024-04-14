@@ -1,0 +1,270 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7b2x3lbfcx67"]
+
+[ext_resource type="Script" path="res://levels/game_over.gd" id="1_vl8h4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_itvm4"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_68wsg"]
+font_size = 32
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_vl8h4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopVMargin" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LeftHMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -52.0
+offset_right = 95.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MissionStatus" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Game Over"
+label_settings = SubResource("LabelSettings_itvm4")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Completion Time:"
+horizontal_alignment = 2
+
+[node name="bridge1" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "............."
+clip_text = true
+
+[node name="TimeStat" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Stat"
+
+[node name="EnemiesLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Enemies Remaining:"
+horizontal_alignment = 2
+
+[node name="bridge2" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "............."
+clip_text = true
+
+[node name="EnemiesStat" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Stat"
+
+[node name="KillsLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Kills:"
+horizontal_alignment = 2
+
+[node name="bridge3" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "............."
+clip_text = true
+
+[node name="KillsStat" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Stat"
+
+[node name="SecretsLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Secrets Found:"
+horizontal_alignment = 2
+
+[node name="bridge4" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "............."
+clip_text = true
+
+[node name="SecretsStat" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+mouse_filter = 1
+text = "Stat"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Lifetime Stats"
+label_settings = SubResource("LabelSettings_68wsg")
+horizontal_alignment = 1
+
+[node name="GridContainer2" type="GridContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="LKillsLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Kills:"
+horizontal_alignment = 2
+
+[node name="bridge1" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "............."
+clip_text = true
+
+[node name="LKillsStat" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Stat"
+
+[node name="LSecretsLabel" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Secrets Found:"
+horizontal_alignment = 2
+
+[node name="bridge2" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(12, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "............."
+clip_text = true
+
+[node name="LSecretsStat" type="Label" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Stat"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[node name="PlayAgain" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit
+"
+
+[node name="RightHMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomVMargin" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Control/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

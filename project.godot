@@ -14,7 +14,9 @@ config/name="Berzerk"
 run/main_scene="res://addons/splash_screen_wizard/splash_screen_actual.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://resources/BAH Icon.jpg"
+config/macos_native_icon="res://resources/icon.iconset/bah_512.icns"
+config/windows_native_icon="res://resources/icon.iconset/BaH.ico"
 
 [autoload]
 

@@ -7,8 +7,9 @@ extends CharacterBody3D
 @onready var muzzle = $CameraMount/Muzzle
 @onready var inventory_manager = $InventoryManager
 @onready var ui_overlay = $UIOverlay
-@onready var timer_game = $TimerGame
 
+@onready var game_music = $Music
+@onready var foot_step_audio = $FootStepAudio
 
 @export var PLAYER_SPEED = 5.0
 
@@ -20,10 +21,27 @@ var current_weapon = null
 var can_interact = false
 var target
 
-func _ready() -> void:
+var cur_pos : Vector3
+var old_pos : Vector3
+var player_moving : bool
+
+
+func _init():
+	print("init player ", self)
+	_enter_tree()
+
+
+func _enter_tree():
+	print("player enter tree ", self, " - ", get_tree())
+
+func _ready():
+	print("readying player ", self)
+	old_pos = self.global_position
+	cur_pos = self.global_position
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	SignalBus.connect("interaction_complete", interaction_complete)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	prep_music()
 	player_inventory = inventory_manager.get_children()
 	for child in player_inventory:
 		child.hide_weapon()
@@ -35,7 +53,9 @@ func _ready() -> void:
 		print("starting weapon ", current_weapon)
 		print("starting type ", current_weapon.type)
 		current_weapon.show_weapon()
-	timer_game.start()
+		SignalBus.player_ready.emit()
+	#print("paused? ", get_tree().paused)
+	print("player_ready")
 
 func _input(event) -> void:
 	if Input.is_action_just_pressed("exit"):
@@ -76,7 +96,6 @@ func _input(event) -> void:
 			current_weapon.weapon_action(muzzle)
 		if current_weapon.type == 0:
 			SignalBus.interaction_stopped.emit()
-			print("stop")
 		else:
 			pass
 
@@ -101,7 +120,17 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, PLAYER_SPEED)
 
 	move_and_slide()
-		
+
+	cur_pos = self.global_position
+	if cur_pos == old_pos:
+		player_moving = false
+		foot_step_audio.stop()
+	else:
+		player_moving = true
+		if foot_step_audio.playing == false:
+			foot_step_audio.play()
+	old_pos = cur_pos
+
 	if timer_button_press.time_left > 0 and timer_button_press.time_left < 0.80:
 		SignalBus.weapon_swapping.emit()
 
@@ -135,10 +164,18 @@ func add_to_inventory(item):
 
 
 func interaction_complete() -> void:
-	print("complete target ", target)
 	target.interaction_complete()
 
 
 func open_menu():
 	#SignalBus.level_change.emit("main_menu")
 	ui_overlay.open_menu()
+
+
+func prep_music():
+	game_music.play()
+
+func _on_audio_stream_player_finished():
+	pass # Replace with function body.
+
+

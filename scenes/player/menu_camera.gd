@@ -19,6 +19,7 @@ func _input(event) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if Input.is_action_just_pressed("exit"):
+		StatManager.save_stats()
 		get_tree().quit()
 	
 	if event is InputEventMouseMotion:

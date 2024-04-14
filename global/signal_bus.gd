@@ -16,3 +16,12 @@ signal open_secret()
 signal secret_entered()
 
 signal options_menu()
+
+signal player_ready()
+
+signal update_stat_display()
+
+signal prep_ui()
+signal bye_ui()
+
+signal idied(dead_spot)

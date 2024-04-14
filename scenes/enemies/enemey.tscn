@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c44pulnkiqp2n"]
+[gd_scene load_steps=8 format=3 uid="uid://c44pulnkiqp2n"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemey.gd" id="1_nkylc"]
 [ext_resource type="Resource" uid="uid://nfqjxsumdfni" path="res://scenes/enemies/enemyresources/purpleenemy.tres" id="2_kptxu"]
 [ext_resource type="Texture2D" uid="uid://cfqc5lt01k81w" path="res://scenes/enemies/enemy sprites/purple_enemy.png" id="3_pmsgw"]
 [ext_resource type="Texture2D" uid="uid://88h5qv2cd7ed" path="res://scenes/enemies/enemy sprites/purple_destroyed.png" id="4_klagi"]
-[ext_resource type="AudioStream" uid="uid://dvbqyqdm6vjbd" path="res://resources/audio/new-year-fireworks-sound4-180205.mp3" id="5_ulh6h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvorr"]
 size = Vector3(0.75, 0.75, 0.75)
@@ -33,6 +32,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
 mesh = SubResource("QuadMesh_alrjl")
 skeleton = NodePath("../CollisionShape3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_6dt24")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_ulh6h")

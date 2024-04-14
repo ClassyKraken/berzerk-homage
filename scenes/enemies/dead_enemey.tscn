@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhbwskayi2rny"]
+[gd_scene load_steps=8 format=3 uid="uid://dhbwskayi2rny"]
 
 [ext_resource type="Texture2D" uid="uid://88h5qv2cd7ed" path="res://scenes/enemies/enemy sprites/purple_destroyed.png" id="1_pilum"]
 [ext_resource type="Script" path="res://scenes/enemies/dead_enemey.gd" id="1_v6hqq"]
 [ext_resource type="PackedScene" uid="uid://s38t25rckkwa" path="res://resources/FX/effects_explosion.tscn" id="3_jq7ch"]
+[ext_resource type="AudioStream" uid="uid://deqdoxu5ndwy" path="res://resources/audio/sfx/8-bit-explosion-95847.mp3" id="4_jucmc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r42js"]
 size = Vector3(0.5, 0.5, 0.5)
@@ -18,6 +19,8 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [node name="DeadEnemey" type="StaticBody3D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_v6hqq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -29,3 +32,7 @@ mesh = SubResource("QuadMesh_n35p7")
 surface_material_override/0 = SubResource("StandardMaterial3D_i1507")
 
 [node name="EffectsExplosion" parent="." instance=ExtResource("3_jq7ch")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_jucmc")
+bus = &"SFX"

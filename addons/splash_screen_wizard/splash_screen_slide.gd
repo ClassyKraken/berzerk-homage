@@ -29,8 +29,6 @@ signal finished
 ## If true, the slide can be skipped by pressing the keys defined by the [member SplashScreen.skip_input_action]
 @export var skippable: bool = false
 
-@onready var godot_animated_sprite = $VBoxContainer/GodotAnimatedSprite
-
 
 func _init() -> void:
 	hide()

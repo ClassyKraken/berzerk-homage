@@ -3,9 +3,9 @@ extends StaticBody3D
 
 @export var timer_interaction = 2.0
 
-@onready var gun_squirt = $InventoryManager/GunSquirt
+#@onready var gun_squirt = $InventoryManager/GunSquirt
 
-@onready var interactable_mesh = $CollisionShape3D/MeshInstance3D
+#@onready var interactable_mesh = $CollisionShape3D/MeshInstance3D
 
 
 
@@ -29,9 +29,10 @@ func interaction_stopped():
 
 
 func interaction_complete():
-	interactable_mesh.get_surface_override_material(0).albedo_texture = CHEST_OPEN
-	var item = gun_squirt
-	SignalBus.add_to_inventory.emit(item)
+	#interactable_mesh.get_surface_override_material(0).albedo_texture = CHEST_OPEN
+	#var item = gun_squirt
+	#SignalBus.add_to_inventory.emit(item)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

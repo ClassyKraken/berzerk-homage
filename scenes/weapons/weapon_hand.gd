@@ -4,11 +4,13 @@ extends Weapon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("readying hand")
 	SignalBus.connect("weapon_action", weapon_action)
 	SignalBus.connect("interaction_started", interaction_started)
 	SignalBus.connect("interaction_stopped", interaction_stopped)
 	SignalBus.connect("interaction_complete", interaction_stopped)
 	self.hide()
+	print("hand ready")
 
 
 func hide_weapon():
@@ -32,7 +34,6 @@ func weapon_action(muzzle):
 		can_act = false
 		weapon_sprite.play("action")
 		weapon_sprite.animation_finished.connect(ready_to_act)
-		print("hand action")
 
 
 func ready_to_act():
@@ -46,4 +47,3 @@ func interaction_started():
 
 func interaction_stopped():
 	weapon_sprite.play("walking")
-	print("should stop")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://btcoyymkqk04j"]
+[gd_scene load_steps=8 format=3 uid="uid://btcoyymkqk04j"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_fk14s"]
 [ext_resource type="PackedScene" uid="uid://u0xb83dj1aib" path="res://scenes/weapons/weapon_hand.tscn" id="2_aym85"]
 [ext_resource type="PackedScene" uid="uid://dgqwkw8d8waow" path="res://scenes/player/ui_overlay.tscn" id="2_gtewb"]
 [ext_resource type="PackedScene" uid="uid://behbdw74qgs6h" path="res://scenes/weapons/gun_squirt.tscn" id="3_rbek1"]
+[ext_resource type="AudioStream" uid="uid://k7t6sch8cwuw" path="res://resources/audio/music/Unsung_Hero_In_Game.mp3" id="5_djv8l"]
+[ext_resource type="AudioStream" uid="uid://e1jkrki3yqmv" path="res://resources/audio/sfx/concrete-footsteps-6752.mp3" id="5_noevi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mc2r2"]
 height = 1.25
@@ -43,9 +45,14 @@ one_shot = true
 
 [node name="GunSquirt" parent="InventoryManager" instance=ExtResource("3_rbek1")]
 
-[node name="TimerGame" type="Timer" parent="."]
-process_callback = 0
-wait_time = 300.0
-one_shot = true
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_djv8l")
+bus = &"Music"
+
+[node name="FootStepAudio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0093354, 0)
+stream = ExtResource("5_noevi")
+bus = &"SFX"
 
 [connection signal="timeout" from="TimerButtonPress" to="." method="_on_timer_button_press_timeout"]
+[connection signal="finished" from="Music" to="." method="_on_audio_stream_player_finished"]
